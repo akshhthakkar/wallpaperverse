@@ -139,13 +139,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // DOWNLOAD FUNCTIONS
 const collections = {
-  anime: ["zenitsu1.jpg", "zenitsu2.jpg", "tanjiro.jpg", "Gyomei.jpg", "Lamborghini Miura.jpg", "Obanai.jpg", "Akaza.jpg", "Sukuna.jpg", "sukuna2.jpg", "itadori.jpg", "Yuji.jpg", "yuta.jpg", "JJK.jpg"],
-  marvel: ["thanos.jpg", "thor.jpg", "loki.jpg", "loki2.jpg", "venom.jpg", "spidergwen.jpg", "may.jpg"],
-  strangerthings: ["stranger things.jpg", "stranger.jpg", "vecna.jpg", "will vecna.jpg", "steve.jpg"],
-  movies: ["interstellar.jpg", "breaking bad.jpg"],
-  cars: ["mcqueen.jpg", "lamborghini.jpg"],
-  transformers: ["prime.jpg"],
-  random: ["Jordan 1 lost and found.jpg"],
+  anime: ["demon-slayer-zenitsu-yellow-lightning-wallpaper.jpg", "demon-slayer-zenitsu-thunder-breathing-wallpaper.jpg", "demon-slayer-tanjiro-kamado-wallpaper.jpg", "demon-slayer-gyomei-stone-hashira-wallpaper.jpg", "Lamborghini Miura.jpg", "demon-slayer-obanai-serpent-hashira-wallpaper.jpg", "demon-slayer-akaza-upper-moon-wallpaper.jpg", "jujutsu-kaisen-sukuna-king-of-curses-wallpaper.jpg", "jujutsu-kaisen-sukuna-domain-expansion-wallpaper.jpg", "jujutsu-kaisen-itadori-action-pose-wallpaper.jpg", "jujutsu-kaisen-yuji-itadori-protagonist-wallpaper.jpg", "jujutsu-kaisen-yuta-okkotsu-special-grade-wallpaper.jpg", "jujutsu-kaisen-ensemble-cast-wallpaper.jpg"],
+  marvel: ["marvel-thanos-mad-titan-wallpaper.jpg", "marvel-thor-god-of-thunder-wallpaper.jpg", "marvel-loki-god-of-mischief-wallpaper.jpg", "marvel-loki-asgardian-prince-wallpaper.jpg", "marvel-venom-symbiote-wallpaper.jpg", "marvel-spider-gwen-stacy-wallpaper.jpg", "marvel-aunt-may-parker-wallpaper.jpg"],
+  strangerthings: ["tv-show-stranger-things-cast-wallpaper.jpg", "tv-show-stranger-things-upside-down-wallpaper.jpg", "tv-show-stranger-things-vecna-wallpaper.jpg", "tv-show-stranger-things-will-vecna-wallpaper.jpg", "marvel-steve-rogers-captain-america-wallpaper.jpg"],
+  movies: ["movie-interstellar-space-exploration-wallpaper.jpg", "tv-show-breaking-bad-heisenberg-wallpaper.jpg"],
+  cars: ["disney-lightning-mcqueen-cars-wallpaper.jpg"],
+  transformers: ["disney-optimus-prime-transformers-wallpaper.jpg"],
+  random: ["sneaker-jordan-lost-and-found-retro-wallpaper.jpg"],
 };
 
 async function downloadImage(imageUrl) {
