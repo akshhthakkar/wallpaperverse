@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wallpapers Collection</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        color: white;
+        margin-bottom: 40px;
+      }
+
+      header h1 {
+        font-size: 3em;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      header p {
+        font-size: 1.2em;
+        opacity: 0.9;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 25px;
+        margin-bottom: 40px;
+      }
+
+      .card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+      }
+
+      .card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .card-content {
+        padding: 15px;
+      }
+
+      .card-title {
+        font-size: 1.1em;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .download-btn {
+        display: inline-block;
+        width: 100%;
+        padding: 10px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: opacity 0.3s ease;
+      }
+
+      .download-btn:hover {
+        opacity: 0.9;
+      }
+
+      footer {
+        text-align: center;
+        color: white;
+        padding: 20px;
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>🎨 Wallpapers Collection</h1>
+        <p>High-quality wallpapers from anime, movies, and pop culture</p>
+      </header>
+
+      <div class="gallery" id="gallery"></div>
+
+      <footer>
+        <p>Personal wallpaper collection • All images stored with Git LFS</p>
+      </footer>
+    </div>
+
+    <script>
+      const wallpapers = [
+        { name: "Akaza", file: "Akaza.jpg" },
+        { name: "Breaking Bad", file: "breaking bad.jpg" },
+        { name: "Gyomei", file: "Gyomei.jpg" },
+        { name: "Interstellar", file: "interstellar.jpg" },
+        { name: "Itadori", file: "itadori.jpg" },
+        { name: "JJK", file: "JJK.jpg" },
+        {
+          name: "Jordan 1 Lost and Found",
+          file: "Jordan 1 lost and found.jpg",
+        },
+        { name: "Loki", file: "loki.jpg" },
+        { name: "Loki 2", file: "loki2.jpg" },
+        { name: "May", file: "may.jpg" },
+        { name: "Lightning McQueen", file: "mcqueen.jpg" },
+        { name: "Meiji", file: "Meiji.jpg" },
+        { name: "Obanai", file: "Obanai.jpg" },
+        { name: "Optimus Prime", file: "prime.jpg" },
+        { name: "Spider-Gwen", file: "spidergwen.jpg" },
+        { name: "Steve", file: "steve.jpg" },
+        { name: "Stranger Things", file: "stranger things.jpg" },
+        { name: "Stranger", file: "stranger.jpg" },
+        { name: "Sukuna", file: "Sukuna.jpg" },
+        { name: "Sukuna 2", file: "sukuna2.jpg" },
+        { name: "Tanjiro", file: "tanjiro.jpg" },
+        { name: "Thanos", file: "thanos.jpg" },
+        { name: "Thor", file: "thor.jpg" },
+        { name: "Vecna", file: "vecna.jpg" },
+        { name: "Venom", file: "venom.jpg" },
+        { name: "Will Vecna", file: "will vecna.jpg" },
+        { name: "Yuji", file: "Yuji.jpg" },
+        { name: "Yuta", file: "yuta.jpg" },
+        { name: "Zenitsu", file: "zenitsu1.jpg" },
+        { name: "Zenitsu 2", file: "zenitsu2.jpg" },
+      ];
+
+      const gallery = document.getElementById("gallery");
+
+      wallpapers.forEach((wallpaper) => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+                <img src="${wallpaper.file}" alt="${wallpaper.name}" loading="lazy">
+                <div class="card-content">
+                    <div class="card-title">${wallpaper.name}</div>
+                    <a href="${wallpaper.file}" download="${wallpaper.file}" class="download-btn">
+                        ⬇️ Download
+                    </a>
+                </div>
+            `;
+        gallery.appendChild(card);
+      });
+    </script>
+  </body>
+</html>
