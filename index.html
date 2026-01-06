@@ -70,13 +70,27 @@
         border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 16px;
         overflow: hidden;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: transform 0.25s ease, border-color 0.25s ease,
+          box-shadow 0.25s ease;
         position: relative;
         cursor: pointer;
+        opacity: 0;
+        animation: fadeIn 0.4s ease forwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
       .card:hover {
-        transform: translateY(-8px);
+        transform: translateY(-4px);
         border-color: rgba(255, 255, 255, 0.2);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
       }
@@ -85,7 +99,31 @@
         position: relative;
         overflow: hidden;
         aspect-ratio: 16/10;
-        background: #1a1a1a;
+        background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%);
+      }
+
+      .card-image-wrapper::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          #2a2a2a 0%,
+          #1a1a1a 50%,
+          #2a2a2a 100%
+        );
+        background-size: 200% 200%;
+        animation: shimmer 2s infinite;
+        opacity: 0.3;
+      }
+
+      @keyframes shimmer {
+        0% {
+          background-position: 100% 0%;
+        }
+        100% {
+          background-position: -100% 0%;
+        }
       }
 
       .card img {
@@ -93,11 +131,16 @@
         height: 100%;
         object-fit: cover;
         display: block;
-        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: transform 0.4s ease, opacity 0.3s ease;
+        opacity: 0;
+      }
+
+      .card img.loaded {
+        opacity: 1;
       }
 
       .card:hover img {
-        transform: scale(1.05);
+        transform: scale(1.03);
       }
 
       .card-overlay {
@@ -109,7 +152,8 @@
           transparent 50%
         );
         opacity: 0;
-        transition: opacity 0.4s ease;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
       }
 
       .card:hover .card-overlay {
@@ -235,9 +279,10 @@
 
       const gallery = document.getElementById("gallery");
 
-      wallpapers.forEach((wallpaper) => {
+      wallpapers.forEach((wallpaper, index) => {
         const card = document.createElement("div");
         card.className = "card";
+        card.style.animationDelay = `${index * 0.05}s`;
 
         const encodedFile = encodeURIComponent(wallpaper.file);
 
@@ -245,8 +290,28 @@
         imageWrapper.className = "card-image-wrapper";
 
         const img = document.createElement("img");
-        img.src = encodedFile;
+        img.dataset.src = encodedFile;
         img.alt = wallpaper.name;
+
+        // Lazy load images
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const image = entry.target;
+                image.src = image.dataset.src;
+                image.onload = () => {
+                  image.classList.add("loaded");
+                  imageWrapper.querySelector("::before")?.remove();
+                };
+                observer.unobserve(image);
+              }
+            });
+          },
+          { rootMargin: "50px" }
+        );
+
+        observer.observe(img);
 
         const overlay = document.createElement("div");
         overlay.className = "card-overlay";
