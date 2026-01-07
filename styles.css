@@ -1303,6 +1303,10 @@ body {
   will-change: transform;
 }
 
+.marquee-track:hover .marquee-group {
+  animation-play-state: paused;
+}
+
 .marquee-group img {
   height: 220px;
   width: auto;

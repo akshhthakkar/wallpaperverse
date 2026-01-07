@@ -184,7 +184,7 @@ function initAutoScroll() {
       });
     }
 
-    let scrollSpeed = 1.1; // Slightly faster
+    let scrollSpeed = 1.8; // Faster scroll
     let isPaused = false;
     let autoScrollReq;
 
@@ -249,6 +249,14 @@ function initAutoScroll() {
     if (shouldAutoScroll) {
       // Cancel previous if any (tough to track without global state, but basic impl here)
       autoScroll();
+
+      // Pause on hover
+      grid.addEventListener("mouseenter", () => {
+        isPaused = true;
+      });
+      grid.addEventListener("mouseleave", () => {
+        isPaused = false;
+      });
     }
   });
 }
