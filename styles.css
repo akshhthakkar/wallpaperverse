@@ -550,11 +550,6 @@ body {
   z-index: 10; /* Ensure it stays on top of input */
 }
 
-#searchInput:focus + .search-icon {
-  /* This selector won't work now that input is AFTER svg in DOM. 
-     We need to change selector or rely on JS/focus-within. 
-     Using focus-within on container is better. */
-}
 .search-container:focus-within .search-icon {
   color: var(--color-secondary);
 }
