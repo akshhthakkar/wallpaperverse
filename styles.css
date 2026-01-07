@@ -237,11 +237,19 @@ body {
 
   /* Fix for mobile layout */
   .nav-container {
-    padding: 1rem;
+    padding: 0.8rem 1rem;
+    width: 100%;
   }
 
   .nav-brand {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .nav-left {
+    flex-shrink: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 .nav-link::after {

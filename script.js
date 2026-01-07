@@ -259,10 +259,27 @@ let collections = {};
 
 async function loadWallpapers() {
   try {
-    const response = await fetch("wallpapers.json");
+    const response = await fetch(`wallpapers.json?v=${Date.now()}`);
     if (!response.ok) throw new Error("Failed to load wallpapers.json");
 
     const data = await response.json();
+
+    // Update Hero Stats (Run this early to ensure UI updates)
+    try {
+      const totalWallpapers = Object.values(data).reduce(
+        (acc, curr) => acc + (Array.isArray(curr) ? curr.length : 0),
+        0
+      );
+      const totalCollections = Object.keys(data).length;
+
+      const statWallpapers = document.getElementById("stat-wallpapers");
+      const statCollections = document.getElementById("stat-collections");
+
+      if (statWallpapers) statWallpapers.textContent = `${totalWallpapers}+`;
+      if (statCollections) statCollections.textContent = totalCollections;
+    } catch (e) {
+      console.warn("Stats update failed", e);
+    }
 
     // Map JSON data to simple filename arrays for compatibility with downloadCollection
     Object.keys(data).forEach((category) => {
@@ -272,19 +289,6 @@ async function loadWallpapers() {
 
     // Start preloading
     preloadImages(data);
-
-    // Update Hero Stats
-    const totalWallpapers = Object.values(data).reduce(
-      (acc, curr) => acc + curr.length,
-      0
-    );
-    const totalCollections = Object.keys(data).length;
-
-    const statWallpapers = document.getElementById("stat-wallpapers");
-    const statCollections = document.getElementById("stat-collections");
-
-    if (statWallpapers) statWallpapers.textContent = `${totalWallpapers}+`;
-    if (statCollections) statCollections.textContent = totalCollections;
 
     // Re-initialize logic that depends on DOM content
     // We need to wait for DOM to be populated before initializing sliders
