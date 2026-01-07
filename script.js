@@ -273,6 +273,19 @@ async function loadWallpapers() {
     // Start preloading
     preloadImages(data);
 
+    // Update Hero Stats
+    const totalWallpapers = Object.values(data).reduce(
+      (acc, curr) => acc + curr.length,
+      0
+    );
+    const totalCollections = Object.keys(data).length;
+
+    const statWallpapers = document.getElementById("stat-wallpapers");
+    const statCollections = document.getElementById("stat-collections");
+
+    if (statWallpapers) statWallpapers.textContent = `${totalWallpapers}+`;
+    if (statCollections) statCollections.textContent = totalCollections;
+
     // Re-initialize logic that depends on DOM content
     // We need to wait for DOM to be populated before initializing sliders
     setTimeout(() => {

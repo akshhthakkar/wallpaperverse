@@ -149,7 +149,7 @@ body {
 .nav-brand {
   font-family: "Unbounded", sans-serif;
   letter-spacing: 0.08em;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   color: var(--color-text);
@@ -233,6 +233,15 @@ body {
   .mobile-toggle.active .bar:nth-child(3) {
     transform: translateY(-9px) rotate(-45deg);
     background: var(--color-secondary);
+  }
+
+  /* Fix for mobile layout */
+  .nav-container {
+    padding: 1rem;
+  }
+
+  .nav-brand {
+    font-size: 1rem;
   }
 }
 .nav-link::after {
