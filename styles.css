@@ -505,6 +505,73 @@ body {
   box-shadow: 0 6px 20px rgba(0, 217, 255, 0.5);
 }
 
+/* SEARCH CONTAINER */
+.search-container {
+  position: relative;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 800px; /* Wider search bar */
+  z-index: 2;
+  margin-top: 1rem;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 1.2rem 1.5rem 1.2rem 3.5rem; /* Padding left for icon */
+  background: rgba(26, 26, 26, 0.8);
+  border: 2px solid var(--color-primary);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  border-radius: 4px;
+  clip-path: polygon(1% 0, 100% 0, 99% 100%, 0 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 217, 255, 0.1);
+}
+
+#searchInput:focus {
+  outline: none;
+  background: rgba(26, 26, 26, 0.95);
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 25px rgba(255, 0, 64, 0.3);
+  transform: scale(1.02);
+}
+
+.search-icon {
+  position: absolute;
+  left: 1.5rem; /* Icon on the left */
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-primary);
+  pointer-events: none;
+  transition: color 0.3s ease;
+  z-index: 10; /* Ensure it stays on top of input */
+}
+
+#searchInput:focus + .search-icon {
+  /* This selector won't work now that input is AFTER svg in DOM. 
+     We need to change selector or rely on JS/focus-within. 
+     Using focus-within on container is better. */
+}
+.search-container:focus-within .search-icon {
+  color: var(--color-secondary);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .search-container {
+    max-width: 90%;
+    margin-bottom: 2rem;
+  }
+
+  #searchInput {
+    font-size: 1rem;
+    padding: 1rem 3rem 1rem 1.2rem;
+  }
+}
+
 /* COLLECTIONS SECTION */
 .collections {
   padding: 6rem 0;

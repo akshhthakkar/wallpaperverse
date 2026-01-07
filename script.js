@@ -256,6 +256,98 @@ function initAutoScroll() {
 // DOWNLOAD FUNCTIONS
 // DYNAMIC WALLPAPER LOADING
 let collections = {};
+let allWallpapers = [];
+
+function initSearch() {
+  const searchInput = document.getElementById("searchInput");
+  const searchResultsCard = document.getElementById("search-results-card");
+  const searchGrid = document.getElementById("search-grid");
+  const searchCount = document.getElementById("search-count");
+  const searchQueryDisplay = document.getElementById("search-query-display");
+
+  if (!searchInput) return;
+
+  searchInput.addEventListener("input", (e) => {
+    const query = e.target.value.toLowerCase().trim();
+    // Re-query cards every time to ensure we get any dynamically added ones,
+    // though for now they are static blocks.
+    const allCollectionCards = document.querySelectorAll(
+      ".collection-card:not(#search-results-card)"
+    );
+
+    if (query.length === 0) {
+      searchResultsCard.style.display = "none";
+      allCollectionCards.forEach((card) => (card.style.display = "block"));
+      initScrollReveal(); // Re-trigger animations
+      return;
+    }
+
+    // Toggle Views
+    searchResultsCard.style.display = "block";
+    allCollectionCards.forEach((card) => (card.style.display = "none"));
+
+    searchQueryDisplay.textContent = `RESULTS FOR "${e.target.value.toUpperCase()}"`;
+
+    // Filter Logic
+    // Filter Logic
+    // 1. Tokenize query
+    const tokens = query.split(/\s+/).filter((token) => token.length > 0);
+
+    // 2. Define noise words to ignore if they are part of a longer query
+    const noiseWords = [
+      "wallpaper",
+      "wallpapers",
+      "background",
+      "backgrounds",
+      "image",
+      "images",
+      "hd",
+      "4k",
+    ];
+
+    // Only filter out noise words if there are other meaningful tokens
+    const meaningfulTokens = tokens.filter((t) => !noiseWords.includes(t));
+    const searchTokens =
+      meaningfulTokens.length > 0 ? meaningfulTokens : tokens;
+
+    const matching = allWallpapers.filter((item) => {
+      const titleLower = item.title.toLowerCase();
+      const categoryLower = item.category.toLowerCase();
+
+      // Check if EVERY search token is present in either title or category
+      return searchTokens.every(
+        (token) => titleLower.includes(token) || categoryLower.includes(token)
+      );
+    });
+
+    searchCount.textContent = `${matching.length} IMAGE${
+      matching.length !== 1 ? "S" : ""
+    }`;
+
+    // Render Logic
+    searchGrid.innerHTML = "";
+    if (matching.length === 0) {
+      searchGrid.innerHTML = `<div style="text-align:center; grid-column: 1/-1; padding: 4rem; color: #a0a0a0; font-family: 'Bebas Neue'; font-size: 1.5rem;">NO MATCHES FOUND</div>`;
+    } else {
+      matching.forEach((item) => {
+        const gridItem = document.createElement("div");
+        gridItem.className = "grid-item reveal active"; // Force active for immediate show
+        gridItem.onclick = () => openLightbox(item.original, item.title);
+        gridItem.innerHTML = `
+          <img src="${item.optimized}" alt="${item.title}" loading="lazy" />
+          <div class="item-overlay">
+            <button class="btn-quick-download" onclick="event.stopPropagation(); downloadImage('${item.original}')">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+        `;
+        searchGrid.appendChild(gridItem);
+      });
+    }
+  });
+}
 
 async function loadWallpapers() {
   try {
@@ -263,6 +355,16 @@ async function loadWallpapers() {
     if (!response.ok) throw new Error("Failed to load wallpapers.json");
 
     const data = await response.json();
+
+    // Flatten data for search
+    allWallpapers = [];
+    Object.keys(data).forEach((category) => {
+      data[category].forEach((item) => {
+        allWallpapers.push({ ...item, category });
+      });
+    });
+
+    initSearch();
 
     // Update Hero Stats (Run this early to ensure UI updates)
     try {

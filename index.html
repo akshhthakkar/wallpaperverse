@@ -93,14 +93,42 @@
       </svg>
     </a>
 
+
     <div class="hero-pattern"></div>
   </section>
+
+
 
 
   <section class="collections" id="collections">
     <div class="section-header">
       <div class="section-badge">COLLECTIONS</div>
       <h2 class="section-title">CHOOSE YOUR STYLE</h2>
+    </div>
+
+    <div style="display: flex; justify-content: center; width: 100%;">
+      <div class="search-container" style="margin-bottom: 4rem;">
+        <svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <input type="text" id="searchInput" placeholder="Search wallpapers..." />
+      </div>
+    </div>
+
+    <!-- SEARCH RESULTS CARD (Hidden by default) -->
+    <div class="collection-card" id="search-results-card" style="display: none;">
+      <div class="collection-header" style="border-left-color: var(--color-secondary);">
+        <h3 class="collection-title" id="search-query-display">RESULTS</h3>
+        <p class="collection-desc">Displaying search results matching your query.</p>
+        <div class="collection-meta">
+          <span class="meta-tag" id="search-count">0 IMAGES</span><span class="meta-tag">HD</span>
+        </div>
+      </div>
+      <div class="collection-grid" id="search-grid" style="flex-wrap: wrap; overflow: visible;">
+        <!-- Search results injected here -->
+      </div>
     </div>
     <div class="collection-card" data-collection="anime">
       <div class="collection-header">
