@@ -45,5 +45,5 @@ _Note: This repo uses Git LFS for those crisp 4K textures._
 ---
 
 <p align="center">
-  Made with ❤️ and too much caffeine by <a href="https://github.com/akshhthakkar">Aksh Thakkar</a>
+  Made with ❤️ and too much caffeine by <a href="https://github.com/akshhthakkar">Aksh</a>
 </p>
