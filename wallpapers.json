@@ -1,0 +1,236 @@
+{
+  "anime": [
+    {
+      "file": "demon-slayer-akaza-upper-moon-wallpaper.jpg",
+      "title": "Akaza Upper Moon",
+      "optimized": "./optimized/anime/demon-slayer-akaza-upper-moon-wallpaper.jpg",
+      "original": "./wallpapers/anime/demon-slayer-akaza-upper-moon-wallpaper.jpg"
+    },
+    {
+      "file": "demon-slayer-gyomei-stone-hashira-wallpaper.jpg",
+      "title": "Gyomei Stone Hashira",
+      "optimized": "./optimized/anime/demon-slayer-gyomei-stone-hashira-wallpaper.jpg",
+      "original": "./wallpapers/anime/demon-slayer-gyomei-stone-hashira-wallpaper.jpg"
+    },
+    {
+      "file": "demon-slayer-meiji-era-setting-wallpaper.jpg",
+      "title": "Meiji Era Setting",
+      "optimized": "./optimized/anime/demon-slayer-meiji-era-setting-wallpaper.jpg",
+      "original": "./wallpapers/anime/demon-slayer-meiji-era-setting-wallpaper.jpg"
+    },
+    {
+      "file": "demon-slayer-obanai-serpent-hashira-wallpaper.jpg",
+      "title": "Obanai Serpent Hashira",
+      "optimized": "./optimized/anime/demon-slayer-obanai-serpent-hashira-wallpaper.jpg",
+      "original": "./wallpapers/anime/demon-slayer-obanai-serpent-hashira-wallpaper.jpg"
+    },
+    {
+      "file": "demon-slayer-tanjiro-kamado-wallpaper.jpg",
+      "title": "Tanjiro Kamado",
+      "optimized": "./optimized/anime/demon-slayer-tanjiro-kamado-wallpaper.jpg",
+      "original": "./wallpapers/anime/demon-slayer-tanjiro-kamado-wallpaper.jpg"
+    },
+    {
+      "file": "demon-slayer-zenitsu-thunder-breathing-wallpaper.jpg",
+      "title": "Zenitsu Thunder Breathing",
+      "optimized": "./optimized/anime/demon-slayer-zenitsu-thunder-breathing-wallpaper.jpg",
+      "original": "./wallpapers/anime/demon-slayer-zenitsu-thunder-breathing-wallpaper.jpg"
+    },
+    {
+      "file": "demon-slayer-zenitsu-yellow-lightning-wallpaper.jpg",
+      "title": "Zenitsu Yellow Lightning",
+      "optimized": "./optimized/anime/demon-slayer-zenitsu-yellow-lightning-wallpaper.jpg",
+      "original": "./wallpapers/anime/demon-slayer-zenitsu-yellow-lightning-wallpaper.jpg"
+    },
+    {
+      "file": "jujutsu-kaisen-ensemble-cast-wallpaper.jpg",
+      "title": "Ensemble Cast",
+      "optimized": "./optimized/anime/jujutsu-kaisen-ensemble-cast-wallpaper.jpg",
+      "original": "./wallpapers/anime/jujutsu-kaisen-ensemble-cast-wallpaper.jpg"
+    },
+    {
+      "file": "jujutsu-kaisen-itadori-action-pose-wallpaper.jpg",
+      "title": "Itadori Action Pose",
+      "optimized": "./optimized/anime/jujutsu-kaisen-itadori-action-pose-wallpaper.jpg",
+      "original": "./wallpapers/anime/jujutsu-kaisen-itadori-action-pose-wallpaper.jpg"
+    },
+    {
+      "file": "jujutsu-kaisen-sukuna-domain-expansion-wallpaper.jpg",
+      "title": "Sukuna Domain Expansion",
+      "optimized": "./optimized/anime/jujutsu-kaisen-sukuna-domain-expansion-wallpaper.jpg",
+      "original": "./wallpapers/anime/jujutsu-kaisen-sukuna-domain-expansion-wallpaper.jpg"
+    },
+    {
+      "file": "jujutsu-kaisen-sukuna-king-of-curses-wallpaper.jpg",
+      "title": "Sukuna King Of Curses",
+      "optimized": "./optimized/anime/jujutsu-kaisen-sukuna-king-of-curses-wallpaper.jpg",
+      "original": "./wallpapers/anime/jujutsu-kaisen-sukuna-king-of-curses-wallpaper.jpg"
+    },
+    {
+      "file": "jujutsu-kaisen-yuji-itadori-protagonist-wallpaper.jpg",
+      "title": "Yuji Itadori Protagonist",
+      "optimized": "./optimized/anime/jujutsu-kaisen-yuji-itadori-protagonist-wallpaper.jpg",
+      "original": "./wallpapers/anime/jujutsu-kaisen-yuji-itadori-protagonist-wallpaper.jpg"
+    },
+    {
+      "file": "jujutsu-kaisen-yuta-okkotsu-special-grade-wallpaper.jpg",
+      "title": "Yuta Okkotsu Special Grade",
+      "optimized": "./optimized/anime/jujutsu-kaisen-yuta-okkotsu-special-grade-wallpaper.jpg",
+      "original": "./wallpapers/anime/jujutsu-kaisen-yuta-okkotsu-special-grade-wallpaper.jpg"
+    }
+  ],
+  "cars": [
+    {
+      "file": "disney-lightning-mcqueen-cars-wallpaper.jpg",
+      "title": "Lightning Mcqueen Cars",
+      "optimized": "./optimized/cars/disney-lightning-mcqueen-cars-wallpaper.jpg",
+      "original": "./wallpapers/cars/disney-lightning-mcqueen-cars-wallpaper.jpg"
+    },
+    {
+      "file": "lamborghini-miura-wallpaper.jpg",
+      "title": "Lamborghini Miura",
+      "optimized": "./optimized/cars/lamborghini-miura-wallpaper.jpg",
+      "original": "./wallpapers/cars/lamborghini-miura-wallpaper.jpg"
+    }
+  ],
+  "marvel": [
+    {
+      "file": "marvel captain america end game.jpg",
+      "title": "Marvel captain america end game",
+      "optimized": "./optimized/marvel/marvel captain america end game.jpg",
+      "original": "./wallpapers/marvel/marvel captain america end game.jpg"
+    },
+    {
+      "file": "marvel-aunt-may-parker-wallpaper.jpg",
+      "title": "Aunt May Parker",
+      "optimized": "./optimized/marvel/marvel-aunt-may-parker-wallpaper.jpg",
+      "original": "./wallpapers/marvel/marvel-aunt-may-parker-wallpaper.jpg"
+    },
+    {
+      "file": "marvel-loki-asgardian-prince-wallpaper.jpg",
+      "title": "Loki Asgardian Prince",
+      "optimized": "./optimized/marvel/marvel-loki-asgardian-prince-wallpaper.jpg",
+      "original": "./wallpapers/marvel/marvel-loki-asgardian-prince-wallpaper.jpg"
+    },
+    {
+      "file": "marvel-loki-god-of-mischief-wallpaper.jpg",
+      "title": "Loki God Of Mischief",
+      "optimized": "./optimized/marvel/marvel-loki-god-of-mischief-wallpaper.jpg",
+      "original": "./wallpapers/marvel/marvel-loki-god-of-mischief-wallpaper.jpg"
+    },
+    {
+      "file": "marvel-spider-gwen-stacy-wallpaper.jpg",
+      "title": "Spider Gwen Stacy",
+      "optimized": "./optimized/marvel/marvel-spider-gwen-stacy-wallpaper.jpg",
+      "original": "./wallpapers/marvel/marvel-spider-gwen-stacy-wallpaper.jpg"
+    },
+    {
+      "file": "marvel-steve-rogers-captain-america-wallpaper.jpg",
+      "title": "Steve Rogers Captain America",
+      "optimized": "./optimized/marvel/marvel-steve-rogers-captain-america-wallpaper.jpg",
+      "original": "./wallpapers/marvel/marvel-steve-rogers-captain-america-wallpaper.jpg"
+    },
+    {
+      "file": "marvel-thanos-mad-titan-wallpaper.jpg",
+      "title": "Thanos Mad Titan",
+      "optimized": "./optimized/marvel/marvel-thanos-mad-titan-wallpaper.jpg",
+      "original": "./wallpapers/marvel/marvel-thanos-mad-titan-wallpaper.jpg"
+    },
+    {
+      "file": "marvel-thor-god-of-thunder-wallpaper.jpg",
+      "title": "Thor God Of Thunder",
+      "optimized": "./optimized/marvel/marvel-thor-god-of-thunder-wallpaper.jpg",
+      "original": "./wallpapers/marvel/marvel-thor-god-of-thunder-wallpaper.jpg"
+    },
+    {
+      "file": "marvel-venom-symbiote-wallpaper.jpg",
+      "title": "Venom Symbiote",
+      "optimized": "./optimized/marvel/marvel-venom-symbiote-wallpaper.jpg",
+      "original": "./wallpapers/marvel/marvel-venom-symbiote-wallpaper.jpg"
+    },
+    {
+      "file": "marvel_captain_america.jpg",
+      "title": "Marvel_captain_america",
+      "optimized": "./optimized/marvel/marvel_captain_america.jpg",
+      "original": "./wallpapers/marvel/marvel_captain_america.jpg"
+    },
+    {
+      "file": "marvel_captain_america_end_game.jpg",
+      "title": "Marvel_captain_america_end_game",
+      "optimized": "./optimized/marvel/marvel_captain_america_end_game.jpg",
+      "original": "./wallpapers/marvel/marvel_captain_america_end_game.jpg"
+    },
+    {
+      "file": "marvel_thor_wakanda.jpg",
+      "title": "Marvel_thor_wakanda",
+      "optimized": "./optimized/marvel/marvel_thor_wakanda.jpg",
+      "original": "./wallpapers/marvel/marvel_thor_wakanda.jpg"
+    }
+  ],
+  "movies": [
+    {
+      "file": "movie-interstellar-space-exploration-wallpaper.jpg",
+      "title": "Interstellar Space Exploration",
+      "optimized": "./optimized/movies/movie-interstellar-space-exploration-wallpaper.jpg",
+      "original": "./wallpapers/movies/movie-interstellar-space-exploration-wallpaper.jpg"
+    },
+    {
+      "file": "tv-show-breaking-bad-heisenberg-wallpaper.jpg",
+      "title": "Breaking Bad Heisenberg",
+      "optimized": "./optimized/movies/tv-show-breaking-bad-heisenberg-wallpaper.jpg",
+      "original": "./wallpapers/movies/tv-show-breaking-bad-heisenberg-wallpaper.jpg"
+    },
+    {
+      "file": "tv-show-friends-netlfix-wallpaper.jpg",
+      "title": "Friends Netlfix",
+      "optimized": "./optimized/movies/tv-show-friends-netlfix-wallpaper.jpg",
+      "original": "./wallpapers/movies/tv-show-friends-netlfix-wallpaper.jpg"
+    },
+    {
+      "file": "tv-show-stranger-things-cast-wallpaper.jpg",
+      "title": "Stranger Things Cast",
+      "optimized": "./optimized/movies/tv-show-stranger-things-cast-wallpaper.jpg",
+      "original": "./wallpapers/movies/tv-show-stranger-things-cast-wallpaper.jpg"
+    },
+    {
+      "file": "tv-show-stranger-things-upside-down-wallpaper.jpg",
+      "title": "Stranger Things Upside Down",
+      "optimized": "./optimized/movies/tv-show-stranger-things-upside-down-wallpaper.jpg",
+      "original": "./wallpapers/movies/tv-show-stranger-things-upside-down-wallpaper.jpg"
+    },
+    {
+      "file": "tv-show-stranger-things-vecna-wallpaper.jpg",
+      "title": "Stranger Things Vecna",
+      "optimized": "./optimized/movies/tv-show-stranger-things-vecna-wallpaper.jpg",
+      "original": "./wallpapers/movies/tv-show-stranger-things-vecna-wallpaper.jpg"
+    },
+    {
+      "file": "tv-show-stranger-things-will-vecna-wallpaper.jpg",
+      "title": "Stranger Things Will Vecna",
+      "optimized": "./optimized/movies/tv-show-stranger-things-will-vecna-wallpaper.jpg",
+      "original": "./wallpapers/movies/tv-show-stranger-things-will-vecna-wallpaper.jpg"
+    }
+  ],
+  "random": [
+    {
+      "file": "marve-loki_god_of_mischief.jpg",
+      "title": "Marve Loki_god_of_mischief",
+      "optimized": "./optimized/random/marve-loki_god_of_mischief.jpg",
+      "original": "./wallpapers/random/marve-loki_god_of_mischief.jpg"
+    },
+    {
+      "file": "sneaker-jordan-lost-and-found-retro-wallpaper.jpg",
+      "title": "Jordan Lost And Found Retro",
+      "optimized": "./optimized/random/sneaker-jordan-lost-and-found-retro-wallpaper.jpg",
+      "original": "./wallpapers/random/sneaker-jordan-lost-and-found-retro-wallpaper.jpg"
+    }
+  ],
+  "transformers": [
+    {
+      "file": "disney-optimus-prime-transformers-wallpaper.jpg",
+      "title": "Optimus Prime Transformers",
+      "optimized": "./optimized/transformers/disney-optimus-prime-transformers-wallpaper.jpg",
+      "original": "./wallpapers/transformers/disney-optimus-prime-transformers-wallpaper.jpg"
+    }
+  ]
+}

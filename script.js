@@ -155,7 +155,8 @@ function preloadImages() {
 window.addEventListener("load", preloadImages);
 
 // AUTO-SCROLL COLLECTIONS (Optimized)
-document.addEventListener("DOMContentLoaded", () => {
+// AUTO-SCROLL COLLECTIONS (Optimized)
+function initAutoScroll() {
   document.querySelectorAll(".collection-card").forEach((card) => {
     const grid = card.querySelector(".collection-grid");
     const wrapper = card.querySelector(".collection-wrapper");
@@ -170,6 +171,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const shouldAutoScroll = itemCount > 3;
 
     if (shouldAutoScroll) {
+      // Clear existing clones first if any (in case of re-init)
+      // Actually, since we clear innerHTML in renderCollection, we are safe.
       items.forEach((item) => {
         const clone = item.cloneNode(true);
         // Ensure cloned item onclick uses the same optimized path logic if passed as string literal
@@ -193,7 +196,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (prevBtn) {
-      prevBtn.addEventListener("click", (e) => {
+      // Remove old event listeners to prevent duplicates if re-initialized
+      const newPrevBtn = prevBtn.cloneNode(true);
+      if (prevBtn.parentNode)
+        prevBtn.parentNode.replaceChild(newPrevBtn, prevBtn);
+
+      newPrevBtn.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
         isPaused = true; // Pause to prevent fighting
@@ -212,7 +220,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (nextBtn) {
-      nextBtn.addEventListener("click", (e) => {
+      const newNextBtn = nextBtn.cloneNode(true);
+      if (nextBtn.parentNode)
+        nextBtn.parentNode.replaceChild(newNextBtn, nextBtn);
+
+      newNextBtn.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
         isPaused = true;
@@ -230,56 +242,84 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    // Pause on click only (temporarily)
-    // Removed hover pause to strictly follow "should not stop"
-    // grid.addEventListener("mouseenter", () => (isPaused = true));
-    // grid.addEventListener("mouseleave", () => (isPaused = false));
-
     if (shouldAutoScroll) {
+      // Cancel previous if any (tough to track without global state, but basic impl here)
       autoScroll();
     }
   });
-});
+}
 
 // DOWNLOAD FUNCTIONS
-const collections = {
-  anime: [
-    "demon-slayer-zenitsu-thunder-breathing-wallpaper.jpg",
-    "demon-slayer-obanai-serpent-hashira-wallpaper.jpg",
-    "demon-slayer-akaza-upper-moon-wallpaper.jpg",
-    "demon-slayer-tanjiro-kamado-wallpaper.jpg",
-    "demon-slayer-gyomei-stone-hashira-wallpaper.jpg",
-    "demon-slayer-zenitsu-yellow-lightning-wallpaper.jpg",
-    "jujutsu-kaisen-sukuna-king-of-curses-wallpaper.jpg",
-    "jujutsu-kaisen-sukuna-domain-expansion-wallpaper.jpg",
-    "jujutsu-kaisen-itadori-action-pose-wallpaper.jpg",
-    "jujutsu-kaisen-yuji-itadori-protagonist-wallpaper.jpg",
-    "jujutsu-kaisen-yuta-okkotsu-special-grade-wallpaper.jpg",
-    "jujutsu-kaisen-ensemble-cast-wallpaper.jpg",
-  ],
-  marvel: [
-    "marvel-thanos-mad-titan-wallpaper.jpg",
-    "marvel-thor-god-of-thunder-wallpaper.jpg",
-    "marvel-loki-god-of-mischief-wallpaper.jpg",
-    "marvel-loki-asgardian-prince-wallpaper.jpg",
-    "marvel-venom-symbiote-wallpaper.jpg",
-    "marvel-spider-gwen-stacy-wallpaper.jpg",
-    "marvel-aunt-may-parker-wallpaper.jpg",
-  ],
-  movies: [
-    "movie-interstellar-space-exploration-wallpaper.jpg",
-    "tv-show-breaking-bad-heisenberg-wallpaper.jpg",
-    "tv-show-stranger-things-cast-wallpaper.jpg",
-    "tv-show-stranger-things-upside-down-wallpaper.jpg",
-    "tv-show-stranger-things-vecna-wallpaper.jpg",
-    "tv-show-stranger-things-will-vecna-wallpaper.jpg",
-    "marvel-steve-rogers-captain-america-wallpaper.jpg",
-    "tv-show-friends-netlfix-wallpaper.jpg",
-  ],
-  cars: ["disney-lightning-mcqueen-cars-wallpaper.jpg"],
-  transformers: ["disney-optimus-prime-transformers-wallpaper.jpg"],
-  random: ["sneaker-jordan-lost-and-found-retro-wallpaper.jpg"],
-};
+// DYNAMIC WALLPAPER LOADING
+let collections = {};
+
+async function loadWallpapers() {
+  try {
+    const response = await fetch("wallpapers.json");
+    if (!response.ok) throw new Error("Failed to load wallpapers.json");
+
+    const data = await response.json();
+
+    // Map JSON data to simple filename arrays for compatibility with downloadCollection
+    Object.keys(data).forEach((category) => {
+      collections[category] = data[category].map((item) => item.file);
+      renderCollection(category, data[category]);
+    });
+
+    // Re-initialize logic that depends on DOM content
+    // We need to wait for DOM to be populated before initializing sliders
+    setTimeout(() => {
+      initAutoScroll();
+      if (typeof initScrollReveal === "function") initScrollReveal();
+    }, 100);
+  } catch (error) {
+    console.error("Error loading wallpapers:", error);
+    showNotification("Failed to load wallpapers!", "error");
+  }
+}
+
+function renderCollection(category, items) {
+  const card = document.querySelector(
+    `.collection-card[data-collection="${category}"]`
+  );
+  if (!card) return;
+
+  const grid = card.querySelector(".collection-grid");
+  if (!grid) return;
+
+  // Clear existing static content if any (though we will remove it from HTML too)
+  grid.innerHTML = "";
+
+  // Update count in header
+  const countTag = card.querySelector(".meta-tag:first-child");
+  if (countTag) {
+    const count = items.length;
+    countTag.textContent = `${count} IMAGE${count !== 1 ? "S" : ""}`;
+  }
+
+  items.forEach((item) => {
+    const gridItem = document.createElement("div");
+    gridItem.className = "grid-item";
+    gridItem.onclick = () => openLightbox(item.original, item.title);
+
+    // Initial structure
+    gridItem.innerHTML = `
+      <img src="${item.optimized}" alt="${item.title}" loading="lazy" />
+      <div class="item-overlay">
+        <button class="btn-quick-download" onclick="event.stopPropagation(); downloadImage('${item.original}')">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+    `;
+
+    grid.appendChild(gridItem);
+  });
+}
+
+// Call init immediately
+loadWallpapers();
 
 async function downloadImage(imageUrl) {
   try {

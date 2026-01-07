@@ -1,0 +1,38 @@
+name: Update Wallpapers
+
+on:
+  push:
+    paths:
+      - "wallpapers/**"
+      - "generate_wallpapers.js"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Fetch all history for proper git operations if needed, or 0 is fine
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate Wallpapers JSON and Optimize Images
+        run: node generate_wallpapers.js
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add wallpapers.json optimized/
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update wallpapers [skip ci]" && git push)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
