@@ -1,0 +1,21 @@
+{
+  "name": "WallpaperVerse",
+  "short_name": "WallpaperVerse",
+  "description": "Curated collection of 4K and HD wallpapers.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#ff003c",
+  "icons": [
+    {
+      "src": "https://avatars.githubusercontent.com/u/156109288?v=4",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://avatars.githubusercontent.com/u/156109288?v=4",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

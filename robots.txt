@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://akshthakkar.me/wallpapers/sitemap.xml
