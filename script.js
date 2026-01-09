@@ -452,6 +452,7 @@ function renderCollection(category, items) {
 
     const gridItem = document.createElement("div");
     gridItem.className = "grid-item";
+    gridItem.dataset.wallpaperId = wallpaperId; // Store ID for stats loading
 
     // Generate SEO-friendly alt text
     const altText = `${item.title} - ${categoryName} HD Wallpaper | Free Download | WallpaperVerse`;
@@ -462,6 +463,7 @@ function renderCollection(category, items) {
     // Initial structure with enhanced alt text and link to individual page
     gridItem.innerHTML = `
       <img src="${item.optimized}" alt="${altText}" loading="lazy" />
+      <div class="download-count-badge" data-id="${wallpaperId}">⬇ 0</div>
       <div class="item-overlay">
         <a href="wallpaper.html?id=${wallpaperId}" class="btn-view-page" aria-label="View ${item.title} page" onclick="event.stopPropagation()">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -478,6 +480,55 @@ function renderCollection(category, items) {
 
     grid.appendChild(gridItem);
   });
+
+  // Load stats for this category's wallpapers
+  loadWallpaperStats(items);
+}
+
+// Load download stats for wallpapers
+async function loadWallpaperStats(items) {
+  if (!window.supabaseClient) {
+    // Retry after Supabase loads
+    setTimeout(() => loadWallpaperStats(items), 1000);
+    return;
+  }
+
+  try {
+    // Get all wallpaper IDs
+    const ids = items.map((item) =>
+      item.file
+        .replace(/\.(jpg|jpeg|png|webp)$/i, "")
+        .replace(/[_\s]+/g, "-")
+        .toLowerCase()
+    );
+
+    // Fetch stats for all these wallpapers
+    const { data } = await window.supabaseClient
+      .from("wallpaper_stats")
+      .select("id, downloads")
+      .in("id", ids);
+
+    if (data) {
+      data.forEach((stat) => {
+        const badge = document.querySelector(
+          `.download-count-badge[data-id="${stat.id}"]`
+        );
+        if (badge && stat.downloads > 0) {
+          badge.textContent = `⬇ ${formatDownloadCount(stat.downloads)}`;
+          badge.classList.add("has-downloads");
+        }
+      });
+    }
+  } catch (error) {
+    console.log("Stats loading skipped");
+  }
+}
+
+// Format download count for display
+function formatDownloadCount(num) {
+  if (num >= 1000000) return (num / 1000000).toFixed(1) + "M";
+  if (num >= 1000) return (num / 1000).toFixed(1) + "K";
+  return num.toString();
 }
 
 // Call init immediately
@@ -485,6 +536,9 @@ loadWallpapers();
 
 async function downloadImage(imageUrl) {
   try {
+    // Track download in analytics
+    trackDownloadFromGallery(imageUrl);
+
     const response = await fetch(imageUrl);
     const blob = await response.blob();
     const url = URL.createObjectURL(blob);
@@ -499,6 +553,41 @@ async function downloadImage(imageUrl) {
   } catch (error) {
     console.error("Download failed:", error);
     showNotification("Download failed!", "error");
+  }
+}
+
+// Track download from gallery (extract ID from URL)
+async function trackDownloadFromGallery(imageUrl) {
+  if (!window.supabaseClient) return;
+
+  try {
+    // Extract filename and generate ID
+    const filename = imageUrl.split("/").pop();
+    const wallpaperId = filename
+      .replace(/\.(jpg|jpeg|png|webp)$/i, "")
+      .replace(/[_\s]+/g, "-")
+      .toLowerCase();
+
+    // Check if record exists - use maybeSingle to avoid error when no row exists
+    const { data: existing, error } = await window.supabaseClient
+      .from("wallpaper_stats")
+      .select("downloads")
+      .eq("id", wallpaperId)
+      .maybeSingle();
+
+    if (existing) {
+      await window.supabaseClient
+        .from("wallpaper_stats")
+        .update({ downloads: existing.downloads + 1 })
+        .eq("id", wallpaperId);
+    } else {
+      await window.supabaseClient
+        .from("wallpaper_stats")
+        .insert({ id: wallpaperId, views: 0, downloads: 1 });
+    }
+    console.log("⬇ Download tracked:", wallpaperId);
+  } catch (error) {
+    // Silently handle errors - don't break downloads
   }
 }
 

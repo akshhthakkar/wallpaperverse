@@ -129,6 +129,17 @@
   border-radius: 4px;
 }
 
+.stats-badge {
+  background: rgba(0, 217, 255, 0.1);
+  color: var(--color-secondary);
+  padding: 0.35rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border-radius: 4px;
+  margin-left: auto;
+}
+
 .wallpaper-title {
   font-family: var(--font-display);
   font-size: clamp(2rem, 5vw, 3.5rem);

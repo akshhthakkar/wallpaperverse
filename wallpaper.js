@@ -156,6 +156,113 @@ function displayWallpaper(wallpaperId) {
 
   // Load related wallpapers
   loadRelatedWallpapers();
+
+  // Track page view and load stats
+  trackView(currentWallpaper.id);
+  loadStats(currentWallpaper.id);
+}
+
+// ========== ANALYTICS FUNCTIONS ==========
+
+// Track page view
+async function trackView(wallpaperId) {
+  if (!window.supabaseClient) {
+    console.warn("Supabase not ready, skipping view tracking");
+    return;
+  }
+
+  try {
+    // Check if record exists - use maybeSingle to avoid error when no row exists
+    const { data: existing } = await window.supabaseClient
+      .from("wallpaper_stats")
+      .select("views")
+      .eq("id", wallpaperId)
+      .maybeSingle();
+
+    if (existing) {
+      // Increment views
+      await window.supabaseClient
+        .from("wallpaper_stats")
+        .update({ views: existing.views + 1 })
+        .eq("id", wallpaperId);
+    } else {
+      // Create new record
+      await window.supabaseClient
+        .from("wallpaper_stats")
+        .insert({ id: wallpaperId, views: 1, downloads: 0 });
+    }
+    console.log("👁 View tracked for:", wallpaperId);
+  } catch (error) {
+    console.error("Failed to track view:", error);
+  }
+}
+
+// Track download
+async function trackDownload(wallpaperId) {
+  if (!window.supabaseClient) {
+    console.warn("Supabase not ready, skipping download tracking");
+    return;
+  }
+
+  try {
+    // Check if record exists - use maybeSingle to avoid error when no row exists
+    const { data: existing } = await window.supabaseClient
+      .from("wallpaper_stats")
+      .select("downloads")
+      .eq("id", wallpaperId)
+      .maybeSingle();
+
+    if (existing) {
+      // Increment downloads
+      await window.supabaseClient
+        .from("wallpaper_stats")
+        .update({ downloads: existing.downloads + 1 })
+        .eq("id", wallpaperId);
+    } else {
+      // Create new record
+      await window.supabaseClient
+        .from("wallpaper_stats")
+        .insert({ id: wallpaperId, views: 0, downloads: 1 });
+    }
+    console.log("⬇ Download tracked for:", wallpaperId);
+  } catch (error) {
+    console.error("Failed to track download:", error);
+  }
+}
+
+// Load and display stats
+async function loadStats(wallpaperId) {
+  const statsBadge = document.getElementById("statsBadge");
+  if (!statsBadge) return;
+
+  if (!window.supabaseClient) {
+    // Retry after Supabase loads
+    setTimeout(() => loadStats(wallpaperId), 1000);
+    return;
+  }
+
+  try {
+    const { data } = await window.supabaseClient
+      .from("wallpaper_stats")
+      .select("views, downloads")
+      .eq("id", wallpaperId)
+      .single();
+
+    if (data) {
+      statsBadge.textContent = `👁 ${formatNumber(
+        data.views
+      )} • ⬇ ${formatNumber(data.downloads)}`;
+    }
+  } catch (error) {
+    console.log("No stats yet for this wallpaper");
+  }
+}
+
+// Format numbers (1000 -> 1K, etc.)
+function formatNumber(num) {
+  if (num >= 1000000) return (num / 1000000).toFixed(1) + "M";
+  if (num >= 1000) return (num / 1000).toFixed(1) + "K";
+  return num.toString();
 }
 
 // Update meta tags for SEO
@@ -296,6 +403,9 @@ function loadRelatedWallpapers() {
 // Download wallpaper
 function downloadWallpaper() {
   if (!currentWallpaper) return;
+
+  // Track download
+  trackDownload(currentWallpaper.id);
 
   const link = document.createElement("a");
   link.href = currentWallpaper.original;
