@@ -1,6 +1,24 @@
 {
   "anime": [
     {
+      "file": "anime-chainsawman-denji-angry.jpg",
+      "title": "Anime Chainsawman Denji Angry",
+      "optimized": "./optimized/anime/anime-chainsawman-denji-angry.jpg",
+      "original": "./wallpapers/anime/anime-chainsawman-denji-angry.jpg"
+    },
+    {
+      "file": "anime-naruto-sasuke-final-fight.jpg",
+      "title": "Anime Naruto Sasuke Final Fight",
+      "optimized": "./optimized/anime/anime-naruto-sasuke-final-fight.jpg",
+      "original": "./wallpapers/anime/anime-naruto-sasuke-final-fight.jpg"
+    },
+    {
+      "file": "chainsawman-denji.jpg",
+      "title": "Chainsawman Denji",
+      "optimized": "./optimized/anime/chainsawman-denji.jpg",
+      "original": "./wallpapers/anime/chainsawman-denji.jpg"
+    },
+    {
       "file": "demon-slayer-akaza-upper-moon-wallpaper.jpg",
       "title": "Akaza Upper Moon",
       "optimized": "./optimized/anime/demon-slayer-akaza-upper-moon-wallpaper.jpg",
@@ -13,10 +31,22 @@
       "original": "./wallpapers/anime/demon-slayer-gyomei-stone-hashira-wallpaper.jpg"
     },
     {
+      "file": "demon-slayer-hashira-giyu-tomioka.jpg",
+      "title": "Hashira Giyu Tomioka",
+      "optimized": "./optimized/anime/demon-slayer-hashira-giyu-tomioka.jpg",
+      "original": "./wallpapers/anime/demon-slayer-hashira-giyu-tomioka.jpg"
+    },
+    {
       "file": "demon-slayer-obanai-serpent-hashira-wallpaper.jpg",
       "title": "Obanai Serpent Hashira",
       "optimized": "./optimized/anime/demon-slayer-obanai-serpent-hashira-wallpaper.jpg",
       "original": "./wallpapers/anime/demon-slayer-obanai-serpent-hashira-wallpaper.jpg"
+    },
+    {
+      "file": "demon-slayer-rengoku-sword.jpg",
+      "title": "Rengoku Sword",
+      "optimized": "./optimized/anime/demon-slayer-rengoku-sword.jpg",
+      "original": "./wallpapers/anime/demon-slayer-rengoku-sword.jpg"
     },
     {
       "file": "demon-slayer-tanjiro-kamado-wallpaper.jpg",
@@ -163,6 +193,24 @@
   ],
   "movies": [
     {
+      "file": "how-i-met-your-mother-gang.jpg",
+      "title": "How I Met Your Mother Gang",
+      "optimized": "./optimized/movies/how-i-met-your-mother-gang.jpg",
+      "original": "./wallpapers/movies/how-i-met-your-mother-gang.jpg"
+    },
+    {
+      "file": "how-i-met-your-mother-group.jpg",
+      "title": "How I Met Your Mother Group",
+      "optimized": "./optimized/movies/how-i-met-your-mother-group.jpg",
+      "original": "./wallpapers/movies/how-i-met-your-mother-group.jpg"
+    },
+    {
+      "file": "how-i-met-your-mother-surprised.jpg",
+      "title": "How I Met Your Mother Surprised",
+      "optimized": "./optimized/movies/how-i-met-your-mother-surprised.jpg",
+      "original": "./wallpapers/movies/how-i-met-your-mother-surprised.jpg"
+    },
+    {
       "file": "movie-interstellar-space-exploration-wallpaper.jpg",
       "title": "Interstellar Space Exploration",
       "optimized": "./optimized/movies/movie-interstellar-space-exploration-wallpaper.jpg",
@@ -173,6 +221,18 @@
       "title": "Breaking Bad Heisenberg",
       "optimized": "./optimized/movies/tv-show-breaking-bad-heisenberg-wallpaper.jpg",
       "original": "./wallpapers/movies/tv-show-breaking-bad-heisenberg-wallpaper.jpg"
+    },
+    {
+      "file": "tv-show-friends-apartment-window.jpg",
+      "title": "Friends Apartment Window",
+      "optimized": "./optimized/movies/tv-show-friends-apartment-window.jpg",
+      "original": "./wallpapers/movies/tv-show-friends-apartment-window.jpg"
+    },
+    {
+      "file": "tv-show-friends-joey-and-chandler.jpg",
+      "title": "Friends Joey And Chandler",
+      "optimized": "./optimized/movies/tv-show-friends-joey-and-chandler.jpg",
+      "original": "./wallpapers/movies/tv-show-friends-joey-and-chandler.jpg"
     },
     {
       "file": "tv-show-friends-netlfix-wallpaper.jpg",
