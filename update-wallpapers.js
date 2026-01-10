@@ -19,14 +19,16 @@ const sharp = require("sharp");
 const SITE_URL = "https://wallpaperverse.akshthakkar.me";
 const INPUT_DIR = path.join(__dirname, "wallpapers");
 const OUTPUT_DIR = path.join(__dirname, "optimized");
+const THUMB_DIR = path.join(__dirname, "thumbnails");
 const JSON_FILE = path.join(__dirname, "wallpapers.json");
 const SITEMAP_FILE = path.join(__dirname, "sitemap.xml");
 
 // Supported extensions
 const IMG_EXTS = [".jpg", ".jpeg", ".png", ".webp"];
 
-// Ensure optimized directory exists
+// Ensure output directories exist
 if (!fs.existsSync(OUTPUT_DIR)) fs.mkdirSync(OUTPUT_DIR);
+if (!fs.existsSync(THUMB_DIR)) fs.mkdirSync(THUMB_DIR);
 
 // Generate ID from filename
 function generateId(filename) {
@@ -65,24 +67,19 @@ function generateTitle(filename) {
     .join(" ");
 }
 
-// Optimize Single Image
+// Optimize Single Image (creates both optimized and thumbnail versions)
 async function processImage(category, filename) {
   const inputPath = path.join(INPUT_DIR, category, filename);
   const outputCategoryDir = path.join(OUTPUT_DIR, category);
+  const thumbCategoryDir = path.join(THUMB_DIR, category);
 
   if (!fs.existsSync(outputCategoryDir)) fs.mkdirSync(outputCategoryDir);
+  if (!fs.existsSync(thumbCategoryDir)) fs.mkdirSync(thumbCategoryDir);
 
   // Output is always WebP for performance
   const outputFilename = filename.replace(/\.(jpg|jpeg|png|webp)$/i, ".webp");
   const outputPath = path.join(outputCategoryDir, outputFilename);
-
-  // If optimized file exists, skip (cache)
-  if (fs.existsSync(outputPath)) {
-    return {
-      success: true,
-      optimizedPath: `optimized/${category}/${outputFilename}`,
-    };
-  }
+  const thumbPath = path.join(thumbCategoryDir, outputFilename);
 
   console.log(`⚙️ Optimizing: ${category}/${filename}...`);
 
@@ -91,23 +88,43 @@ async function processImage(category, filename) {
     const metadata = await pipeline.metadata();
 
     // Rotate portrait to landscape if needed
+    let rotation = 0;
     if (metadata.width < metadata.height) {
-      pipeline.rotate(90);
+      rotation = 90;
     }
 
-    await pipeline
-      .resize({
-        width: 1920,
-        height: 1080,
-        fit: "cover",
-        position: "center",
-      })
-      .webp({ quality: 80 })
-      .toFile(outputPath);
+    // Create optimized version (1920x1080) if not exists
+    if (!fs.existsSync(outputPath)) {
+      await sharp(inputPath)
+        .rotate(rotation || undefined)
+        .resize({
+          width: 1920,
+          height: 1080,
+          fit: "cover",
+          position: "center",
+        })
+        .webp({ quality: 80 })
+        .toFile(outputPath);
+    }
+
+    // Create thumbnail version (400x225) if not exists
+    if (!fs.existsSync(thumbPath)) {
+      await sharp(inputPath)
+        .rotate(rotation || undefined)
+        .resize({
+          width: 400,
+          height: 225,
+          fit: "cover",
+          position: "center",
+        })
+        .webp({ quality: 60 })
+        .toFile(thumbPath);
+    }
 
     return {
       success: true,
       optimizedPath: `optimized/${category}/${outputFilename}`,
+      thumbnailPath: `thumbnails/${category}/${outputFilename}`,
     };
   } catch (error) {
     console.error(`❌ Failed to optimize ${filename}:`, error.message);
@@ -115,6 +132,7 @@ async function processImage(category, filename) {
     return {
       success: true, // soft fail
       optimizedPath: `wallpapers/${category}/${filename}`,
+      thumbnailPath: `wallpapers/${category}/${filename}`,
     };
   }
 }
@@ -188,6 +206,7 @@ async function build() {
         wallpapers[category].push({
           file: file,
           title: generateTitle(file),
+          thumbnail: result.thumbnailPath,
           optimized: result.optimizedPath,
           original: `wallpapers/${category}/${file}`,
         });
