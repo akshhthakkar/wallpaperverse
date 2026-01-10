@@ -85,6 +85,13 @@ async function processImage(category, filename) {
   console.log(`⚙️ Optimizing: ${category}/${filename}...`);
 
   try {
+    const metadata = await sharp(inputPath).metadata();
+
+    // Handle EXIF orientation (swap width/height if rotated 90/270 degrees)
+    if (metadata.orientation && metadata.orientation >= 5) {
+      [metadata.width, metadata.height] = [metadata.height, metadata.width];
+    }
+
     // Portrait Logic: Smart "Pillarbox" with blurred background
     // This makes sure portrait images fill the 1920x1080 landscape frame elegantly
     if (metadata.width < metadata.height) {
