@@ -442,18 +442,26 @@
           gridItem.onclick = () => {
             // If openLightbox is available globally from script.js
             if (window.openLightbox)
-              window.openLightbox(item.original, item.title);
+              window.openLightbox(
+                item.optimized + "?v=" + Date.now(),
+                item.title,
+                item.original
+              );
             else window.location.href = `wallpaper.html?id=${wallpaperId}`;
           };
 
           gridItem.innerHTML = `
-            <img src="${item.optimized}" alt="${altText}" loading="lazy" />
+            <img src="${
+              item.optimized
+            }?v=${Date.now()}" alt="${altText}" loading="lazy" />
             <div class="download-count-badge" data-id="${wallpaperId}">⬇ 0</div>
             <div class="item-overlay">
               <a href="wallpaper.html?id=${wallpaperId}" class="btn-view-page" aria-label="View page" onclick="event.stopPropagation()">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M15 3h6v6M14 10l6.1-6.1M9 21H3v-6M10 14l-6.1 6.1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
-              <button class="btn-quick-download" onclick="event.stopPropagation(); downloadImage('${item.original}')">
+              <button class="btn-quick-download" onclick="event.stopPropagation(); downloadImage('${
+                item.original
+              }')">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
               </button>
             </div>

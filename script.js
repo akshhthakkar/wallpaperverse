@@ -159,7 +159,7 @@ function preloadImages(data) {
 
   imagesToPreload.forEach((src) => {
     const img = new Image();
-    img.src = src;
+    img.src = src + "?v=" + Date.now();
   });
 }
 // window.addEventListener("load", preloadImages); // Removed: Called dynamically now
@@ -346,11 +346,20 @@ function initSearch() {
       matching.forEach((item) => {
         const gridItem = document.createElement("div");
         gridItem.className = "grid-item reveal active"; // Force active for immediate show
-        gridItem.onclick = () => openLightbox(item.original, item.title);
+        gridItem.onclick = () =>
+          openLightbox(
+            item.optimized + "?v=" + Date.now(),
+            item.title,
+            item.original
+          );
         gridItem.innerHTML = `
-          <img src="${item.optimized}" alt="${item.title}" loading="lazy" />
+          <img src="${item.optimized}?v=${Date.now()}" alt="${
+          item.title
+        }" loading="lazy" />
           <div class="item-overlay">
-            <button class="btn-quick-download" onclick="event.stopPropagation(); downloadImage('${item.original}')">
+            <button class="btn-quick-download" onclick="event.stopPropagation(); downloadImage('${
+              item.original
+            }')">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
@@ -477,10 +486,15 @@ function renderCollection(category, items) {
     const altText = `${item.title} - ${categoryName} HD Wallpaper | Free Download | WallpaperVerse`;
 
     // Click opens lightbox for quick view, but also has link to individual page
-    gridItem.onclick = () => openLightbox(item.original, item.title);
+    gridItem.onclick = () =>
+      openLightbox(
+        item.optimized + "?v=" + Date.now(),
+        item.title,
+        item.original
+      );
 
     // Use optimized images for better quality display
-    const displayImage = item.optimized;
+    const displayImage = item.optimized + "?v=" + Date.now();
     gridItem.innerHTML = `
       <img src="${displayImage}" alt="${altText}" loading="lazy" />
       <div class="download-count-badge" data-id="${wallpaperId}">⬇ 0</div>
@@ -704,7 +718,8 @@ function showNotification(message, type = "success") {
 }
 
 // LIGHTBOX
-function openLightbox(imageSrc, imageAlt) {
+function openLightbox(imageSrc, imageAlt, originalSrc = null) {
+  const downloadUrl = originalSrc || imageSrc;
   const lightbox = document.createElement("div");
   lightbox.className = "lightbox";
 
@@ -804,9 +819,7 @@ function openLightbox(imageSrc, imageAlt) {
 
   downloadBtn.addEventListener("click", (e) => {
     e.stopPropagation();
-    // Remove "optimized/" from path to download original high-res file
-    const originalPath = imageSrc.replace("/optimized/", "/");
-    downloadImage(originalPath);
+    downloadImage(downloadUrl);
   });
 
   lightbox.appendChild(img);

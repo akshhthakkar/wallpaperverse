@@ -133,7 +133,7 @@ function displayWallpaper(wallpaperId) {
     spinner.classList.add("hidden");
   };
 
-  img.src = currentWallpaper.original;
+  img.src = currentWallpaper.optimized + "?v=" + Date.now();
   img.alt = `${currentWallpaper.title} - ${categoryNames[currentCategory]} HD Wallpaper | WallpaperVerse`;
 
   // Update title and info
