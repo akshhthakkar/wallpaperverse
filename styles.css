@@ -854,30 +854,38 @@ body {
 }
 
 .btn-view-page:hover {
-  transform: scale(1.1);
-  background: var(--color-primary);
-  color: var(--color-bg);
+  transform: translateY(-3px);
   box-shadow: 0 4px 15px rgba(0, 217, 255, 0.4);
 }
 
+/* VIEW ALL BUTTON - HERO COPY STYLE */
 .btn-view-all {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
   margin-top: 1rem;
-  font-family: var(--font-display);
-  font-size: 0.9rem;
-  color: var(--color-text);
+  padding: 1rem 2.5rem; /* Larger padding for presence */
+  background: transparent;
+  border: 2px solid var(--color-secondary); /* 2px solid like Hero */
+  color: var(--color-secondary);
   text-decoration: none;
-  border-bottom: 1px solid var(--color-primary);
-  padding-bottom: 2px;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
   transition: all 0.3s ease;
-  cursor: pointer;
-  letter-spacing: 0.1em;
+  overflow: visible; /* No clip needed */
+  border-radius: 0;
 }
 
 .btn-view-all:hover {
-  color: var(--color-primary);
-  letter-spacing: 0.15em;
+  background: var(--color-secondary);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(255, 0, 64, 0.4);
 }
+
+/* Removed ::after shine to match clean Logout style */
 
 .btn-quick-download {
   width: 60px;
