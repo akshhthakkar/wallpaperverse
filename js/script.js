@@ -178,7 +178,7 @@ function initAutoScroll() {
     // Get original item count
     const items = Array.from(grid.children);
     const itemCount = items.length;
-    const shouldAutoScroll = itemCount > 3;
+    const shouldAutoScroll = itemCount >= 3;
 
     if (shouldAutoScroll) {
       // Clear existing clones first if any (in case of re-init)
