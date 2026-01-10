@@ -125,8 +125,9 @@ const main = async () => {
           wallpapers[category].push({
             file: file,
             title: title,
-            optimized: `./optimized/${category}/${file}`,
-            original: `./wallpapers/${category}/${file}`,
+            thumbnail: `thumbnails/${category}/${file}`,
+            optimized: `optimized/${category}/${file}`,
+            original: `wallpapers/${category}/${file}`,
           });
         }
       }

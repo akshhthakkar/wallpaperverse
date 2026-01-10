@@ -865,6 +865,25 @@ body {
   box-shadow: 0 4px 15px rgba(0, 217, 255, 0.4);
 }
 
+.btn-view-all {
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--color-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-primary);
+  padding-bottom: 2px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+}
+
+.btn-view-all:hover {
+  color: var(--color-primary);
+  letter-spacing: 0.15em;
+}
+
 .btn-quick-download {
   width: 60px;
   height: 60px;

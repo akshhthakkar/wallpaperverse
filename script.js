@@ -14,34 +14,36 @@ window.addEventListener("scroll", () => {
 // HERO ANIMATIONS
 const heroTimeline = gsap.timeline();
 
-heroTimeline
-  .from(".hero-badge", {
-    y: -50,
-    opacity: 0,
-    duration: 1,
-    ease: "power3.out",
-  })
-  .from(
-    ".title-line",
-    {
-      y: 100,
+if (document.querySelector(".hero-title")) {
+  heroTimeline
+    .from(".hero-badge", {
+      y: -50,
       opacity: 0,
       duration: 1,
-      stagger: 0.3,
-      ease: "power4.out",
-    },
-    "-=0.5"
-  )
-  .from(
-    ".hero-subtitle",
-    {
-      y: 30,
-      opacity: 0,
-      duration: 0.8,
       ease: "power3.out",
-    },
-    "-=0.5"
-  );
+    })
+    .from(
+      ".title-line",
+      {
+        y: 100,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.3,
+        ease: "power4.out",
+      },
+      "-=0.5"
+    )
+    .from(
+      ".hero-subtitle",
+      {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      },
+      "-=0.5"
+    );
+}
 /* Animations removed to force visibility
   .from(
     ".stat-card",
@@ -97,17 +99,19 @@ gsap.utils.toArray(".collection-card").forEach((card, i) => {
 });
 
 // ABOUT SECTION ANIMATION
-gsap.from(".about-content", {
-  scrollTrigger: {
-    trigger: ".about-content",
-    start: "top 75%",
-    toggleActions: "play none none reverse",
-  },
-  y: 50,
-  opacity: 0,
-  duration: 1,
-  ease: "power3.out",
-});
+if (document.querySelector(".about-content")) {
+  gsap.from(".about-content", {
+    scrollTrigger: {
+      trigger: ".about-content",
+      start: "top 75%",
+      toggleActions: "play none none reverse",
+    },
+    y: 50,
+    opacity: 0,
+    duration: 1,
+    ease: "power3.out",
+  });
+}
 
 // SMOOTH SCROLLING
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -126,17 +130,19 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 
 // BACK TO TOP
 const backToTopBtn = document.getElementById("backToTop");
-window.addEventListener("scroll", () => {
-  if (window.pageYOffset > 500) {
-    backToTopBtn.classList.add("visible");
-  } else {
-    backToTopBtn.classList.remove("visible");
-  }
-});
+if (backToTopBtn) {
+  window.addEventListener("scroll", () => {
+    if (window.pageYOffset > 500) {
+      backToTopBtn.classList.add("visible");
+    } else {
+      backToTopBtn.classList.remove("visible");
+    }
+  });
 
-backToTopBtn.addEventListener("click", () => {
-  gsap.to(window, { duration: 0.6, scrollTo: 0, ease: "power2.inOut" });
-});
+  backToTopBtn.addEventListener("click", () => {
+    gsap.to(window, { duration: 0.6, scrollTo: 0, ease: "power2.inOut" });
+  });
+}
 
 // IMAGE PRELOADING (Performance)
 // Preload a few random images from the first loaded category
@@ -380,12 +386,25 @@ async function loadWallpapers() {
         (acc, curr) => acc + (Array.isArray(curr) ? curr.length : 0),
         0
       );
+      // Round down to nearest 5 (e.g., 57 -> 55, 62 -> 60)
+      const roundedCount = Math.floor(totalWallpapers / 5) * 5;
       const totalCollections = Object.keys(data).length;
 
       const statWallpapers = document.getElementById("stat-wallpapers");
       const statCollections = document.getElementById("stat-collections");
 
-      if (statWallpapers) statWallpapers.textContent = `${totalWallpapers}+`;
+      if (statWallpapers) {
+        // Animate counting from 0 to roundedCount
+        const counter = { val: 0 };
+        gsap.to(counter, {
+          val: roundedCount,
+          duration: 2.5,
+          ease: "power2.out",
+          onUpdate: () => {
+            statWallpapers.textContent = Math.floor(counter.val) + "+";
+          },
+        });
+      }
       if (statCollections) statCollections.textContent = totalCollections;
     } catch (e) {
       console.warn("Stats update failed", e);
@@ -532,7 +551,13 @@ function formatDownloadCount(num) {
 }
 
 // Call init immediately
-loadWallpapers();
+// Only run main data loading on pages that need it (Home)
+if (
+  document.getElementById("searchInput") ||
+  document.querySelector(".collection-card")
+) {
+  loadWallpapers();
+}
 
 async function downloadImage(imageUrl) {
   try {
