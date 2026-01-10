@@ -55,7 +55,7 @@ function getWallpaperIdFromUrl() {
 async function loadWallpaperData() {
   try {
     // Use absolute path to ensure it works from any page
-    const response = await fetch("/wallpapers.json");
+    const response = await fetch("/wallpapers.json?v=" + Date.now());
     const data = await response.json();
 
     // Flatten all wallpapers with category info

@@ -154,10 +154,8 @@ function preloadImages(data) {
   const firstCategory = categories[0];
   const items = data[firstCategory];
 
-  // Preload up to 3 thumbnail images for faster initial display
-  const imagesToPreload = items
-    .slice(0, 3)
-    .map((item) => item.thumbnail || item.optimized);
+  // Preload up to 3 optimized images for display
+  const imagesToPreload = items.slice(0, 3).map((item) => item.optimized);
 
   imagesToPreload.forEach((src) => {
     const img = new Image();
@@ -350,13 +348,9 @@ function initSearch() {
         gridItem.className = "grid-item reveal active"; // Force active for immediate show
         gridItem.onclick = () => openLightbox(item.original, item.title);
         gridItem.innerHTML = `
-          <img src="${item.thumbnail || item.optimized}" alt="${
-          item.title
-        }" loading="lazy" />
+          <img src="${item.optimized}" alt="${item.title}" loading="lazy" />
           <div class="item-overlay">
-            <button class="btn-quick-download" onclick="event.stopPropagation(); downloadImage('${
-              item.original
-            }')">
+            <button class="btn-quick-download" onclick="event.stopPropagation(); downloadImage('${item.original}')">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
@@ -485,9 +479,8 @@ function renderCollection(category, items) {
     // Click opens lightbox for quick view, but also has link to individual page
     gridItem.onclick = () => openLightbox(item.original, item.title);
 
-    // Initial structure with enhanced alt text and link to individual page
-    // Use thumbnail for faster loading (fallback to optimized if thumbnail missing)
-    const displayImage = item.thumbnail || item.optimized;
+    // Use optimized images for better quality display
+    const displayImage = item.optimized;
     gridItem.innerHTML = `
       <img src="${displayImage}" alt="${altText}" loading="lazy" />
       <div class="download-count-badge" data-id="${wallpaperId}">⬇ 0</div>
