@@ -84,32 +84,90 @@ async function processImage(category, filename) {
   console.log(`⚙️ Optimizing: ${category}/${filename}...`);
 
   try {
-    // Create optimized version (1920x1080) if not exists
-    if (!fs.existsSync(outputPath)) {
-      await sharp(inputPath)
-        .rotate() // Only auto-rotate from EXIF (matches File Explorer display)
+    // Portrait Logic: Smart "Pillarbox" with blurred background
+    // This makes sure portrait images fill the 1920x1080 landscape frame elegantly
+    if (metadata.width < metadata.height) {
+      // 1. Create blurred background (fills 1920x1080)
+      const background = await sharp(inputPath)
+        .rotate()
+        .resize(1920, 1080, { fit: "cover" })
+        .blur(50) // Strong blur
+        .modulate({ brightness: 0.6 }) // Darken background for contrast
+        .toBuffer();
+
+      // 2. Create foreground (fit inside 1080 height)
+      const foreground = await sharp(inputPath)
+        .rotate()
         .resize({
           width: 1920,
           height: 1080,
-          fit: "cover",
-          position: "center",
+          fit: "contain",
+          background: { r: 0, g: 0, b: 0, alpha: 0 },
         })
-        .webp({ quality: 80 })
-        .toFile(outputPath);
-    }
+        .toBuffer();
 
-    // Create thumbnail version (400x225) if not exists
-    if (!fs.existsSync(thumbPath)) {
-      await sharp(inputPath)
-        .rotate() // Only auto-rotate from EXIF
-        .resize({
-          width: 400,
-          height: 225,
-          fit: "cover",
-          position: "center",
-        })
-        .webp({ quality: 60 })
-        .toFile(thumbPath);
+      // 3. Composite for Optimized
+      if (!fs.existsSync(outputPath)) {
+        await sharp(background)
+          .composite([{ input: foreground }])
+          .webp({ quality: 85 })
+          .toFile(outputPath);
+      }
+
+      // 4. Same logic for Thumbnail (400x225)
+      if (!fs.existsSync(thumbPath)) {
+        const thumbBg = await sharp(inputPath)
+          .rotate()
+          .resize(400, 225, { fit: "cover" })
+          .blur(20)
+          .modulate({ brightness: 0.6 })
+          .toBuffer();
+
+        const thumbFg = await sharp(inputPath)
+          .rotate()
+          .resize({
+            width: 400,
+            height: 225,
+            fit: "contain",
+            background: { r: 0, g: 0, b: 0, alpha: 0 },
+          })
+          .toBuffer();
+
+        await sharp(thumbBg)
+          .composite([{ input: thumbFg }])
+          .webp({ quality: 70 })
+          .toFile(thumbPath);
+      }
+    }
+    // Landscape Logic: Standard Cover
+    else {
+      // Create optimized version (1920x1080) if not exists
+      if (!fs.existsSync(outputPath)) {
+        await sharp(inputPath)
+          .rotate() // Only auto-rotate from EXIF
+          .resize({
+            width: 1920,
+            height: 1080,
+            fit: "cover", // fills the screen
+            position: "center",
+          })
+          .webp({ quality: 85 })
+          .toFile(outputPath);
+      }
+
+      // Create thumbnail version (400x225) if not exists
+      if (!fs.existsSync(thumbPath)) {
+        await sharp(inputPath)
+          .rotate() // Only auto-rotate from EXIF
+          .resize({
+            width: 400,
+            height: 225,
+            fit: "cover",
+            position: "center",
+          })
+          .webp({ quality: 70 })
+          .toFile(thumbPath);
+      }
     }
 
     return {
