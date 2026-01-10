@@ -84,19 +84,10 @@ async function processImage(category, filename) {
   console.log(`⚙️ Optimizing: ${category}/${filename}...`);
 
   try {
-    const pipeline = sharp(inputPath).rotate(); // Auto-rotate from EXIF
-    const metadata = await pipeline.metadata();
-
-    // Rotate portrait to landscape if needed
-    let rotation = 0;
-    if (metadata.width < metadata.height) {
-      rotation = 90;
-    }
-
     // Create optimized version (1920x1080) if not exists
     if (!fs.existsSync(outputPath)) {
       await sharp(inputPath)
-        .rotate(rotation || undefined)
+        .rotate() // Only auto-rotate from EXIF (matches File Explorer display)
         .resize({
           width: 1920,
           height: 1080,
@@ -110,7 +101,7 @@ async function processImage(category, filename) {
     // Create thumbnail version (400x225) if not exists
     if (!fs.existsSync(thumbPath)) {
       await sharp(inputPath)
-        .rotate(rotation || undefined)
+        .rotate() // Only auto-rotate from EXIF
         .resize({
           width: 400,
           height: 225,
