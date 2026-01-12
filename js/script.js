@@ -517,7 +517,8 @@ function renderCollection(category, items) {
     gridItem.dataset.wallpaperId = wallpaperId; // Store ID for stats loading
 
     // Generate SEO-friendly alt text
-    const altText = `${item.title} - ${categoryName} HD Wallpaper | Free Download | WallpaperVerse`;
+    const cleanTitle = item.title.replace(/-/g, " ");
+    const altText = `${cleanTitle} - ${categoryName} 4K Wallpaper | Free Download | WallpaperVerse`;
 
     // Click opens lightbox for quick view, but also has link to individual page
     gridItem.onclick = () =>
