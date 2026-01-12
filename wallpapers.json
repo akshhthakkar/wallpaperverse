@@ -229,11 +229,32 @@
       "original": "wallpapers/dc/dc-batman-batmobile.jpg"
     },
     {
+      "file": "dc-batman-minimal-dark.jpg",
+      "title": "Batman Minimal Dark",
+      "thumbnail": "thumbnails/dc/dc-batman-minimal-dark.webp",
+      "optimized": "optimized/dc/dc-batman-minimal-dark.webp",
+      "original": "wallpapers/dc/dc-batman-minimal-dark.jpg"
+    },
+    {
       "file": "dc-batman.jpg",
       "title": "Batman",
       "thumbnail": "thumbnails/dc/dc-batman.webp",
       "optimized": "optimized/dc/dc-batman.webp",
       "original": "wallpapers/dc/dc-batman.jpg"
+    },
+    {
+      "file": "dc-harley-quinn-baseball-bat.jpg",
+      "title": "Harley Quinn Baseball Bat",
+      "thumbnail": "thumbnails/dc/dc-harley-quinn-baseball-bat.webp",
+      "optimized": "optimized/dc/dc-harley-quinn-baseball-bat.webp",
+      "original": "wallpapers/dc/dc-harley-quinn-baseball-bat.jpg"
+    },
+    {
+      "file": "dc-harley-quinn-shotgun.jpg",
+      "title": "Harley Quinn Shotgun",
+      "thumbnail": "thumbnails/dc/dc-harley-quinn-shotgun.webp",
+      "optimized": "optimized/dc/dc-harley-quinn-shotgun.webp",
+      "original": "wallpapers/dc/dc-harley-quinn-shotgun.jpg"
     },
     {
       "file": "dc-joker-black-bg.jpeg",
@@ -248,6 +269,13 @@
       "thumbnail": "thumbnails/dc/dc-joker.webp",
       "optimized": "optimized/dc/dc-joker.webp",
       "original": "wallpapers/dc/dc-joker.jpeg"
+    },
+    {
+      "file": "dc-superman-flying.jpg",
+      "title": "Superman Flying",
+      "thumbnail": "thumbnails/dc/dc-superman-flying.webp",
+      "optimized": "optimized/dc/dc-superman-flying.webp",
+      "original": "wallpapers/dc/dc-superman-flying.jpg"
     },
     {
       "file": "dc-superman-hope.jpeg",
@@ -266,6 +294,20 @@
   ],
   "football": [
     {
+      "file": "football-cole-palmer.jpg",
+      "title": "Cole Palmer",
+      "thumbnail": "thumbnails/football/football-cole-palmer.webp",
+      "optimized": "optimized/football/football-cole-palmer.webp",
+      "original": "wallpapers/football/football-cole-palmer.jpg"
+    },
+    {
+      "file": "football-cristiano-ronaldo-rm.jpg",
+      "title": "Cristiano Ronaldo Rm",
+      "thumbnail": "thumbnails/football/football-cristiano-ronaldo-rm.webp",
+      "optimized": "optimized/football/football-cristiano-ronaldo-rm.webp",
+      "original": "wallpapers/football/football-cristiano-ronaldo-rm.jpg"
+    },
+    {
       "file": "football-cristiano-ronaldo.jpeg",
       "title": "Cristiano Ronaldo",
       "thumbnail": "thumbnails/football/football-cristiano-ronaldo.webp",
@@ -280,11 +322,32 @@
       "original": "wallpapers/football/football-david-beckham-bw.jpeg"
     },
     {
+      "file": "football-fc-barcelona-champions.jpg",
+      "title": "Fc Barcelona Champions",
+      "thumbnail": "thumbnails/football/football-fc-barcelona-champions.webp",
+      "optimized": "optimized/football/football-fc-barcelona-champions.webp",
+      "original": "wallpapers/football/football-fc-barcelona-champions.jpg"
+    },
+    {
       "file": "football-kaka.jpeg",
       "title": "Kaka",
       "thumbnail": "thumbnails/football/football-kaka.webp",
       "optimized": "optimized/football/football-kaka.webp",
       "original": "wallpapers/football/football-kaka.jpeg"
+    },
+    {
+      "file": "football-kylian-mbappe.jpg",
+      "title": "Kylian Mbappe",
+      "thumbnail": "thumbnails/football/football-kylian-mbappe.webp",
+      "optimized": "optimized/football/football-kylian-mbappe.webp",
+      "original": "wallpapers/football/football-kylian-mbappe.jpg"
+    },
+    {
+      "file": "football-leo-messi-fifa-wc.jpg",
+      "title": "Leo Messi Fifa Wc",
+      "thumbnail": "thumbnails/football/football-leo-messi-fifa-wc.webp",
+      "optimized": "optimized/football/football-leo-messi-fifa-wc.webp",
+      "original": "wallpapers/football/football-leo-messi-fifa-wc.jpg"
     },
     {
       "file": "football-messi-worldcup.jpeg",
