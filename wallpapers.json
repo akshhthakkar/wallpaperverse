@@ -15,6 +15,13 @@
       "original": "wallpapers/anime/anime-dbz-goku-mui.jpg"
     },
     {
+      "file": "anime-demon-slayer-rengoku-fire-breathing.jpeg",
+      "title": "Anime Demon Slayer Rengoku Fire Breathing",
+      "thumbnail": "thumbnails/anime/anime-demon-slayer-rengoku-fire-breathing.webp",
+      "optimized": "optimized/anime/anime-demon-slayer-rengoku-fire-breathing.webp",
+      "original": "wallpapers/anime/anime-demon-slayer-rengoku-fire-breathing.jpeg"
+    },
+    {
       "file": "anime-demon-slayer-zenitsu-punch.jpeg",
       "title": "Anime Demon Slayer Zenitsu Punch",
       "thumbnail": "thumbnails/anime/anime-demon-slayer-zenitsu-punch.webp",
@@ -178,6 +185,13 @@
       "original": "wallpapers/cars/disney-lightning-mcqueen-cars.jpeg"
     },
     {
+      "file": "dodge-punisher.jpeg",
+      "title": "Dodge Punisher",
+      "thumbnail": "thumbnails/cars/dodge-punisher.webp",
+      "optimized": "optimized/cars/dodge-punisher.webp",
+      "original": "wallpapers/cars/dodge-punisher.jpeg"
+    },
+    {
       "file": "f1-max-and-lewis.jpg",
       "title": "F1 Max And Lewis",
       "thumbnail": "thumbnails/cars/f1-max-and-lewis.webp",
@@ -204,6 +218,50 @@
       "thumbnail": "thumbnails/cars/znxad3yqyznsuxd19ol2.webp",
       "optimized": "optimized/cars/znxad3yqyznsuxd19ol2.webp",
       "original": "wallpapers/cars/znxad3yqyznsuxd19ol2.jpeg"
+    }
+  ],
+  "dc": [
+    {
+      "file": "dc-batman-batmobile.jpg",
+      "title": "Batman Batmobile",
+      "thumbnail": "thumbnails/dc/dc-batman-batmobile.webp",
+      "optimized": "optimized/dc/dc-batman-batmobile.webp",
+      "original": "wallpapers/dc/dc-batman-batmobile.jpg"
+    },
+    {
+      "file": "dc-batman.jpg",
+      "title": "Batman",
+      "thumbnail": "thumbnails/dc/dc-batman.webp",
+      "optimized": "optimized/dc/dc-batman.webp",
+      "original": "wallpapers/dc/dc-batman.jpg"
+    },
+    {
+      "file": "dc-joker-black-bg.jpeg",
+      "title": "Joker Black Bg",
+      "thumbnail": "thumbnails/dc/dc-joker-black-bg.webp",
+      "optimized": "optimized/dc/dc-joker-black-bg.webp",
+      "original": "wallpapers/dc/dc-joker-black-bg.jpeg"
+    },
+    {
+      "file": "dc-joker.jpeg",
+      "title": "Joker",
+      "thumbnail": "thumbnails/dc/dc-joker.webp",
+      "optimized": "optimized/dc/dc-joker.webp",
+      "original": "wallpapers/dc/dc-joker.jpeg"
+    },
+    {
+      "file": "dc-superman-hope.jpeg",
+      "title": "Superman Hope",
+      "thumbnail": "thumbnails/dc/dc-superman-hope.webp",
+      "optimized": "optimized/dc/dc-superman-hope.webp",
+      "original": "wallpapers/dc/dc-superman-hope.jpeg"
+    },
+    {
+      "file": "dc-superman.jpeg",
+      "title": "Superman",
+      "thumbnail": "thumbnails/dc/dc-superman.webp",
+      "optimized": "optimized/dc/dc-superman.webp",
+      "original": "wallpapers/dc/dc-superman.jpeg"
     }
   ],
   "football": [
@@ -273,6 +331,34 @@
       "original": "wallpapers/marvel/marvel-aunt-may-parker-wallpaper.jpg"
     },
     {
+      "file": "marvel-black-widow.jpeg",
+      "title": "Black Widow",
+      "thumbnail": "thumbnails/marvel/marvel-black-widow.webp",
+      "optimized": "optimized/marvel/marvel-black-widow.webp",
+      "original": "wallpapers/marvel/marvel-black-widow.jpeg"
+    },
+    {
+      "file": "marvel-deadpool-red-bg.jpeg",
+      "title": "Deadpool Red Bg",
+      "thumbnail": "thumbnails/marvel/marvel-deadpool-red-bg.webp",
+      "optimized": "optimized/marvel/marvel-deadpool-red-bg.webp",
+      "original": "wallpapers/marvel/marvel-deadpool-red-bg.jpeg"
+    },
+    {
+      "file": "marvel-deadpool-redblack.jpeg",
+      "title": "Deadpool Redblack",
+      "thumbnail": "thumbnails/marvel/marvel-deadpool-redblack.webp",
+      "optimized": "optimized/marvel/marvel-deadpool-redblack.webp",
+      "original": "wallpapers/marvel/marvel-deadpool-redblack.jpeg"
+    },
+    {
+      "file": "marvel-ironman-black-bg.jpeg",
+      "title": "Ironman Black Bg",
+      "thumbnail": "thumbnails/marvel/marvel-ironman-black-bg.webp",
+      "optimized": "optimized/marvel/marvel-ironman-black-bg.webp",
+      "original": "wallpapers/marvel/marvel-ironman-black-bg.jpeg"
+    },
+    {
       "file": "marvel-loki-asgardian-prince-wallpaper.jpg",
       "title": "Loki Asgardian Prince Wallpaper",
       "thumbnail": "thumbnails/marvel/marvel-loki-asgardian-prince-wallpaper.webp",
@@ -315,6 +401,13 @@
       "original": "wallpapers/marvel/marvel-spider-man-miles-morales.jpg"
     },
     {
+      "file": "marvel-spiderman-spiderverse.jpeg",
+      "title": "Spiderman Spiderverse",
+      "thumbnail": "thumbnails/marvel/marvel-spiderman-spiderverse.webp",
+      "optimized": "optimized/marvel/marvel-spiderman-spiderverse.webp",
+      "original": "wallpapers/marvel/marvel-spiderman-spiderverse.jpeg"
+    },
+    {
       "file": "marvel-thanos-mad-titan-wallpaper.jpg",
       "title": "Thanos Mad Titan Wallpaper",
       "thumbnail": "thumbnails/marvel/marvel-thanos-mad-titan-wallpaper.webp",
@@ -327,6 +420,13 @@
       "thumbnail": "thumbnails/marvel/marvel-thor-god-of-thunder-wallpaper.webp",
       "optimized": "optimized/marvel/marvel-thor-god-of-thunder-wallpaper.webp",
       "original": "wallpapers/marvel/marvel-thor-god-of-thunder-wallpaper.jpg"
+    },
+    {
+      "file": "marvel-venom-black-bg.jpeg",
+      "title": "Venom Black Bg",
+      "thumbnail": "thumbnails/marvel/marvel-venom-black-bg.webp",
+      "optimized": "optimized/marvel/marvel-venom-black-bg.webp",
+      "original": "wallpapers/marvel/marvel-venom-black-bg.jpeg"
     },
     {
       "file": "marvel-venom-symbiote-wallpaper.jpg",
@@ -380,6 +480,20 @@
       "original": "wallpapers/movies/how-i-met-your-mother-surprised.jpg"
     },
     {
+      "file": "move-john-wick-red-bg.jpg",
+      "title": "Move John Wick Red Bg",
+      "thumbnail": "thumbnails/movies/move-john-wick-red-bg.webp",
+      "optimized": "optimized/movies/move-john-wick-red-bg.webp",
+      "original": "wallpapers/movies/move-john-wick-red-bg.jpg"
+    },
+    {
+      "file": "movie-fight-club.jpg",
+      "title": "Fight Club",
+      "thumbnail": "thumbnails/movies/movie-fight-club.webp",
+      "optimized": "optimized/movies/movie-fight-club.webp",
+      "original": "wallpapers/movies/movie-fight-club.jpg"
+    },
+    {
       "file": "movie-interstellar-space-exploration-wallpaper.jpg",
       "title": "Interstellar Space Exploration Wallpaper",
       "thumbnail": "thumbnails/movies/movie-interstellar-space-exploration-wallpaper.webp",
@@ -387,11 +501,32 @@
       "original": "wallpapers/movies/movie-interstellar-space-exploration-wallpaper.jpg"
     },
     {
+      "file": "movie-top-gun-maverick.jpg",
+      "title": "Top Gun Maverick",
+      "thumbnail": "thumbnails/movies/movie-top-gun-maverick.webp",
+      "optimized": "optimized/movies/movie-top-gun-maverick.webp",
+      "original": "wallpapers/movies/movie-top-gun-maverick.jpg"
+    },
+    {
+      "file": "movie-wolf-of-the-wall-street.jpg",
+      "title": "Wolf Of The Wall Street",
+      "thumbnail": "thumbnails/movies/movie-wolf-of-the-wall-street.webp",
+      "optimized": "optimized/movies/movie-wolf-of-the-wall-street.webp",
+      "original": "wallpapers/movies/movie-wolf-of-the-wall-street.jpg"
+    },
+    {
       "file": "tv-show-breaking-bad-heisenberg-wallpaper.jpg",
       "title": "Breaking Bad Heisenberg Wallpaper",
       "thumbnail": "thumbnails/movies/tv-show-breaking-bad-heisenberg-wallpaper.webp",
       "optimized": "optimized/movies/tv-show-breaking-bad-heisenberg-wallpaper.webp",
       "original": "wallpapers/movies/tv-show-breaking-bad-heisenberg-wallpaper.jpg"
+    },
+    {
+      "file": "tv-show-breaking-bad-walter.jpg",
+      "title": "Breaking Bad Walter",
+      "thumbnail": "thumbnails/movies/tv-show-breaking-bad-walter.webp",
+      "optimized": "optimized/movies/tv-show-breaking-bad-walter.webp",
+      "original": "wallpapers/movies/tv-show-breaking-bad-walter.jpg"
     },
     {
       "file": "tv-show-friends-apartment-window.jpg",
@@ -471,6 +606,20 @@
       "original": "wallpapers/movies/tv-show-stranger-things-cast-wallpaper.jpg"
     },
     {
+      "file": "tv-show-stranger-things-eleven.jpg",
+      "title": "Stranger Things Eleven",
+      "thumbnail": "thumbnails/movies/tv-show-stranger-things-eleven.webp",
+      "optimized": "optimized/movies/tv-show-stranger-things-eleven.webp",
+      "original": "wallpapers/movies/tv-show-stranger-things-eleven.jpg"
+    },
+    {
+      "file": "tv-show-stranger-things-mindflayer.jpg",
+      "title": "Stranger Things Mindflayer",
+      "thumbnail": "thumbnails/movies/tv-show-stranger-things-mindflayer.webp",
+      "optimized": "optimized/movies/tv-show-stranger-things-mindflayer.webp",
+      "original": "wallpapers/movies/tv-show-stranger-things-mindflayer.jpg"
+    },
+    {
       "file": "tv-show-stranger-things-steve-harrington.jpg",
       "title": "Stranger Things Steve Harrington",
       "thumbnail": "thumbnails/movies/tv-show-stranger-things-steve-harrington.webp",
@@ -516,7 +665,7 @@
     },
     {
       "file": "sneaker-jordan-lost-and-found-retro-wallpaper.jpg",
-      "title": "Jordan Lost And Found Retro Wallpaper",
+      "title": "Sneaker Jordan Lost And Found Retro Wallpaper",
       "thumbnail": "thumbnails/random/sneaker-jordan-lost-and-found-retro-wallpaper.webp",
       "optimized": "optimized/random/sneaker-jordan-lost-and-found-retro-wallpaper.webp",
       "original": "wallpapers/random/sneaker-jordan-lost-and-found-retro-wallpaper.jpg"
@@ -564,6 +713,50 @@
       "thumbnail": "thumbnails/transformers/transformers-optimus-prime.webp",
       "optimized": "optimized/transformers/transformers-optimus-prime.webp",
       "original": "wallpapers/transformers/transformers-optimus-prime.jpeg"
+    }
+  ],
+  "wanderlust": [
+    {
+      "file": "wanderlust-cosmic-space.jpg",
+      "title": "Cosmic Space",
+      "thumbnail": "thumbnails/wanderlust/wanderlust-cosmic-space.webp",
+      "optimized": "optimized/wanderlust/wanderlust-cosmic-space.webp",
+      "original": "wallpapers/wanderlust/wanderlust-cosmic-space.jpg"
+    },
+    {
+      "file": "wanderlust-dark-lighthouse.jpg",
+      "title": "Dark Lighthouse",
+      "thumbnail": "thumbnails/wanderlust/wanderlust-dark-lighthouse.webp",
+      "optimized": "optimized/wanderlust/wanderlust-dark-lighthouse.webp",
+      "original": "wallpapers/wanderlust/wanderlust-dark-lighthouse.jpg"
+    },
+    {
+      "file": "wanderlust-dark-rocket.jpg",
+      "title": "Dark Rocket",
+      "thumbnail": "thumbnails/wanderlust/wanderlust-dark-rocket.webp",
+      "optimized": "optimized/wanderlust/wanderlust-dark-rocket.webp",
+      "original": "wallpapers/wanderlust/wanderlust-dark-rocket.jpg"
+    },
+    {
+      "file": "wanderlust-nature-sunflowers.jpg",
+      "title": "Nature Sunflowers",
+      "thumbnail": "thumbnails/wanderlust/wanderlust-nature-sunflowers.webp",
+      "optimized": "optimized/wanderlust/wanderlust-nature-sunflowers.webp",
+      "original": "wallpapers/wanderlust/wanderlust-nature-sunflowers.jpg"
+    },
+    {
+      "file": "wanderlust-new-york-city.jpg",
+      "title": "New York City",
+      "thumbnail": "thumbnails/wanderlust/wanderlust-new-york-city.webp",
+      "optimized": "optimized/wanderlust/wanderlust-new-york-city.webp",
+      "original": "wallpapers/wanderlust/wanderlust-new-york-city.jpg"
+    },
+    {
+      "file": "wanderlust-tokyo-evening.jpg",
+      "title": "Tokyo Evening",
+      "thumbnail": "thumbnails/wanderlust/wanderlust-tokyo-evening.webp",
+      "optimized": "optimized/wanderlust/wanderlust-tokyo-evening.webp",
+      "original": "wallpapers/wanderlust/wanderlust-tokyo-evening.jpg"
     }
   ]
 }

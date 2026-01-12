@@ -464,6 +464,25 @@ function renderCollection(category, items) {
   // Clear existing static content if any (though we will remove it from HTML too)
   grid.innerHTML = "";
 
+  // Add fullscreen tip if not already present (after View Entire Collection button)
+  const header = card.querySelector(".collection-header");
+  const viewAllBtn = header?.querySelector(".btn-search-style");
+  if (
+    header &&
+    viewAllBtn &&
+    !header.querySelector(".collection-fullscreen-tip")
+  ) {
+    const tip = document.createElement("div");
+    tip.className = "collection-fullscreen-tip";
+    tip.innerHTML = `
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M16 21h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Click the fullscreen icon on any wallpaper to preview as desktop background
+    `;
+    viewAllBtn.insertAdjacentElement("afterend", tip);
+  }
+
   // Update count in header
   const countTag = card.querySelector(".meta-tag:first-child");
   if (countTag) {
@@ -475,9 +494,12 @@ function renderCollection(category, items) {
   const categoryNames = {
     anime: "Anime",
     marvel: "Marvel",
+    dc: "DC Universe",
     movies: "Movies & TV Shows",
     cars: "Car Culture",
+    football: "Football",
     transformers: "Transformers",
+    wanderlust: "Wanderlust",
     random: "Random",
   };
 
@@ -511,12 +533,20 @@ function renderCollection(category, items) {
       <img src="${displayImage}" alt="${altText}" loading="lazy" />
       <div class="download-count-badge" data-id="${wallpaperId}">⬇ 0</div>
       <div class="item-overlay">
-        <a href="wallpaper.html?id=${wallpaperId}" class="btn-view-page" aria-label="View ${item.title} page" onclick="event.stopPropagation()">
+        <button class="btn-fullscreen-preview" aria-label="View ${
+          item.title
+        } in fullscreen" onclick="event.stopPropagation(); openFullscreenPreview('${
+      item.optimized
+    }?v=${Date.now()}', '${item.title}')">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M15 3h6v6M14 10l6.1-6.1M9 21H3v-6M10 14l-6.1 6.1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M16 21h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-        </a>
-        <button class="btn-quick-download" aria-label="Download ${item.title} wallpaper" onclick="event.stopPropagation(); downloadImage('${item.original}')">
+        </button>
+        <button class="btn-quick-download" aria-label="Download ${
+          item.title
+        } wallpaper" onclick="event.stopPropagation(); downloadImage('${
+      item.original
+    }')">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
@@ -935,4 +965,85 @@ document.addEventListener("DOMContentLoaded", () => {
         : "auto";
     }
   };
+
+  // Create fullscreen preview overlay (once)
+  createFullscreenOverlay();
+});
+
+// ========== FULLSCREEN PREVIEW FOR HOMEPAGE ==========
+
+// Create the fullscreen overlay element
+function createFullscreenOverlay() {
+  if (document.getElementById("fullscreenOverlay")) return;
+
+  const overlay = document.createElement("div");
+  overlay.id = "fullscreenOverlay";
+  overlay.className = "fullscreen-overlay";
+  overlay.innerHTML = `
+    <button class="btn-close-fullscreen" onclick="closeFullscreenPreview()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <img id="fullscreenImage" src="" alt="Fullscreen Preview" />
+  `;
+  overlay.onclick = (e) => {
+    if (e.target === overlay) closeFullscreenPreview();
+  };
+  document.body.appendChild(overlay);
+}
+
+// Open fullscreen preview using browser's Fullscreen API (like F11)
+function openFullscreenPreview(imageSrc, title) {
+  const overlay = document.getElementById("fullscreenOverlay");
+  const img = document.getElementById("fullscreenImage");
+  const titleEl = document.getElementById("fullscreenTitle");
+
+  if (!overlay || !img) return;
+
+  img.src = imageSrc;
+  if (titleEl) titleEl.textContent = title || "";
+  overlay.classList.add("active");
+
+  // Request actual browser fullscreen (like F11)
+  if (overlay.requestFullscreen) {
+    overlay.requestFullscreen();
+  } else if (overlay.webkitRequestFullscreen) {
+    overlay.webkitRequestFullscreen();
+  } else if (overlay.msRequestFullscreen) {
+    overlay.msRequestFullscreen();
+  }
+}
+
+// Close fullscreen preview
+function closeFullscreenPreview() {
+  const overlay = document.getElementById("fullscreenOverlay");
+
+  // Exit browser fullscreen if active
+  if (document.fullscreenElement || document.webkitFullscreenElement) {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    }
+  }
+
+  if (overlay) {
+    overlay.classList.remove("active");
+  }
+}
+
+// Listen for fullscreen exit (ESC or browser button)
+document.addEventListener("fullscreenchange", () => {
+  const overlay = document.getElementById("fullscreenOverlay");
+  if (!document.fullscreenElement && overlay) {
+    overlay.classList.remove("active");
+  }
+});
+
+// ESC key backup handler
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeFullscreenPreview();
 });

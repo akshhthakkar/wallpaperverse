@@ -310,3 +310,120 @@
     font-size: 0.75rem;
   }
 }
+
+/* Fullscreen Hint */
+.fullscreen-hint {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 217, 255, 0.1),
+    rgba(255, 51, 102, 0.1)
+  );
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--color-primary);
+  animation: pulseHint 3s ease-in-out infinite;
+}
+
+@keyframes pulseHint {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Fullscreen Button */
+.btn-fullscreen {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 217, 255, 0.15),
+    rgba(0, 217, 255, 0.05)
+  );
+  border: 1px solid rgba(0, 217, 255, 0.3);
+  color: var(--color-secondary);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-fullscreen:hover {
+  background: rgba(0, 217, 255, 0.2);
+  border-color: var(--color-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(0, 217, 255, 0.2);
+}
+
+/* Exit Fullscreen Button (hidden by default) */
+.btn-exit-fullscreen {
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  padding: 0.75rem 1.5rem;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--color-primary);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border-radius: 8px;
+  cursor: pointer;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-exit-fullscreen:hover {
+  background: rgba(255, 51, 102, 0.8);
+  border-color: var(--color-secondary);
+}
+
+/* Fullscreen Mode Styles */
+.wallpaper-image-container:fullscreen,
+.wallpaper-image-container:-webkit-full-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  border: none;
+  border-radius: 0;
+  max-height: none;
+}
+
+.wallpaper-image-container:fullscreen .wallpaper-image,
+.wallpaper-image-container:-webkit-full-screen .wallpaper-image {
+  max-height: 100vh;
+  max-width: 100vw;
+  object-fit: contain;
+}
+
+.wallpaper-image-container:fullscreen .btn-exit-fullscreen,
+.wallpaper-image-container:-webkit-full-screen .btn-exit-fullscreen {
+  display: inline-flex;
+}
+
+/* Mobile: Hide fullscreen button (doesn't work well on mobile) */
+@media (max-width: 768px) {
+  .btn-fullscreen {
+    display: none;
+  }
+
+  .fullscreen-hint {
+    display: none;
+  }
+}

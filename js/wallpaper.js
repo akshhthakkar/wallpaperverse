@@ -9,10 +9,12 @@ let currentCategory = null;
 const categoryNames = {
   anime: "Anime",
   marvel: "Marvel",
+  dc: "DC Universe",
   movies: "Movies & TV Shows",
   cars: "Car Culture",
   football: "Football",
   transformers: "Transformers",
+  wanderlust: "Wanderlust",
   random: "Random",
 };
 
@@ -505,5 +507,41 @@ function toggleMenu() {
   const navRight = nav.querySelector(".nav-right");
   navRight.classList.toggle("active");
 }
+
+// ========== FULLSCREEN FUNCTIONS ==========
+
+// View wallpaper in fullscreen mode
+function viewFullscreen() {
+  const container = document.getElementById("imageContainer");
+  if (!container) return;
+
+  if (container.requestFullscreen) {
+    container.requestFullscreen();
+  } else if (container.webkitRequestFullscreen) {
+    container.webkitRequestFullscreen();
+  } else if (container.msRequestFullscreen) {
+    container.msRequestFullscreen();
+  }
+}
+
+// Exit fullscreen mode
+function exitFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) {
+    document.msExitFullscreen();
+  }
+}
+
+// Listen for fullscreen change to handle ESC key exit
+document.addEventListener("fullscreenchange", () => {
+  const hint = document.getElementById("fullscreenHint");
+  if (!document.fullscreenElement && hint) {
+    // User exited fullscreen, optionally hide hint after first use
+    hint.style.display = "none";
+  }
+});
 
 console.log("⚡ WALLPAPERVERSE - Individual Page ⚡");

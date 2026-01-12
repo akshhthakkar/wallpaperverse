@@ -48,11 +48,12 @@ function generateTitle(filename) {
     "demon-slayer-",
     "jujutsu-kaisen-",
     "marvel-",
+    "dc-",
     "movie-",
     "tv-show-",
     "disney-",
-    "sneaker-",
     "football-",
+    "wanderlust-",
   ];
   for (const p of prefixes) {
     if (name.toLowerCase().startsWith(p)) {

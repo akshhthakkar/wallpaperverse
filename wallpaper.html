@@ -196,11 +196,29 @@
         </nav>
 
         <!-- Main Image -->
-        <div class="wallpaper-image-container">
+        <div class="fullscreen-hint" id="fullscreenHint">
+          💡 Tip: View in fullscreen to see how it looks on your screen!
+        </div>
+        <div class="wallpaper-image-container" id="imageContainer">
           <div class="loading-spinner" id="loadingSpinner">
             <div class="spinner"></div>
           </div>
           <img id="wallpaperImage" src="" alt="" class="wallpaper-image" />
+          <button
+            class="btn-exit-fullscreen"
+            id="exitFullscreenBtn"
+            onclick="exitFullscreen()"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M18 6L6 18M6 6l12 12"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+            EXIT FULLSCREEN
+          </button>
         </div>
 
         <!-- Wallpaper Info -->
@@ -233,6 +251,18 @@
                 />
               </svg>
               <span>DOWNLOAD WALLPAPER</span>
+            </button>
+            <button class="btn-fullscreen" onclick="viewFullscreen()">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M16 21h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span>VIEW FULLSCREEN</span>
             </button>
             <button class="btn-share" onclick="shareWallpaper()">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
