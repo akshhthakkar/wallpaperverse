@@ -237,7 +237,7 @@ async function loadStats(wallpaperId) {
       .from("wallpaper_stats")
       .select("views, downloads")
       .eq("id", wallpaperId)
-      .single();
+      .maybeSingle();
 
     if (data) {
       statsBadge.textContent = `👁 ${formatNumber(
