@@ -906,8 +906,8 @@ if (typeof initScrollReveal === "function") initScrollReveal();
 
 // Initialize main logic after DOM Content Loaded
 document.addEventListener("DOMContentLoaded", () => {
-  // Console check for GSAP
-  if (typeof gsap === "undefined") {
+  // Console check for GSAP (Only warn if needed, e.g. on homepage)
+  if (typeof gsap === "undefined" && document.querySelector(".hero-title")) {
     console.warn("GSAP not loaded! Check internet connection or CDN limits.");
     return;
   }
