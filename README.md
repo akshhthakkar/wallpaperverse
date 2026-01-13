@@ -1,4 +1,4 @@
-# ⚡ WallpaperVerse e⚡
+# ⚡ WallpaperVerse ⚡
 
 > _"Screens so good they deserve screen time."_
 
