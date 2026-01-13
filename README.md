@@ -50,7 +50,7 @@ Hand-picked, high-resolution masterpieces across:
 - **⚽ Football**: Iconic moments featuring Messi, Ronaldo, and more.
 - **🎲 Random**: A curated mix of aesthetics and vibes.
 
-## � Tech Stack
+## 💻 Tech Stack
 
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+)
 - **Animations**: [GSAP](https://greensock.com/gsap/) (Tween, ScrollTrigger, ScrollTo)
@@ -58,21 +58,7 @@ Hand-picked, high-resolution masterpieces across:
 - **Backend/Data**: [Supabase](https://supabase.com/) (Analytics), JSON (Content Content)
 - **Hosting**: Vercel
 
-## 📂 Project Structure
-
-```bash
-├── 📄 index.html        # Home: Hero, Carousels, Search
-├── 📄 collection.html   # Gallery: Category filtering & Viewing
-├── 📄 wallpaper.html    # Detail: Individual wallpaper download
-├── 📄 submit.html       # Community submission form
-├── 📁 wallpapers/       # Source High-Res Images
-├── 📁 optimized/        # WebP Display Images
-├── � thumbnails/       # Tiny Previews
-├── 📄 wallpapers.json   # Central Metadata Database
-└── 📁 js/               # Core Logic (script.js, wallpaper.js)
-```
-
-## 📥 Submissions
+## Submissions
 
 Got a wallpaper that belongs here? **The collection is open!**
 Submit your own high-quality wallpapers directly through the site.
