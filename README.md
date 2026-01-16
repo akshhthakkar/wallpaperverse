@@ -36,7 +36,7 @@ This isn't just a static HTML page. It's a highly optimized web application buil
   - **Bulk Download**: Download entire collections as a `.zip` file client-side using **JSZip**.
   - **Global Search**: Real-time filtering across all categories with noise-word removal.
   - **Image SEO**: Auto-generated descriptive alt text for better search ranking.
-  - **Analytics**: Download tracking via **Supabase**.
+  - **Analytics**: Download tracking via **Supabase**
 
 ## 🌟 The Collections
 
