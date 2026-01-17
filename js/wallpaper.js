@@ -92,7 +92,7 @@ function displayWallpaper(wallpaperId) {
   if (!currentWallpaper) {
     // Try partial match (handles slight variations)
     currentWallpaper = allWallpapers.find(
-      (w) => w.id.includes(wallpaperId) || wallpaperId.includes(w.id)
+      (w) => w.id.includes(wallpaperId) || wallpaperId.includes(w.id),
     );
   }
 
@@ -133,9 +133,8 @@ function displayWallpaper(wallpaperId) {
     currentWallpaper.title;
   document.getElementById("categoryBadge").textContent =
     categoryNames[currentCategory].toUpperCase();
-  document.getElementById(
-    "wallpaperDescription"
-  ).textContent = `Download this ${categoryNames[currentCategory]} wallpaper in HD quality. Free for personal use on desktop and mobile.`;
+  document.getElementById("wallpaperDescription").textContent =
+    `Download this ${categoryNames[currentCategory]} wallpaper in HD quality. Free for personal use on desktop and mobile.`;
 
   // Update breadcrumb
   const breadcrumbCategory = document.getElementById("breadcrumb-category");
@@ -242,7 +241,7 @@ async function loadStats(wallpaperId) {
 
     if (data) {
       statsBadge.textContent = `👁 ${formatNumber(
-        data.views
+        data.views,
       )} • ⬇ ${formatNumber(data.downloads)}`;
     }
   } catch (error) {
@@ -271,7 +270,7 @@ function updateMetaTags() {
   updateMeta("description", description);
   updateMeta(
     "keywords",
-    `${currentWallpaper.title} wallpaper, ${categoryNames[currentCategory]} wallpaper, hd wallpaper, 4k wallpaper, free download, desktop background`
+    `${currentWallpaper.title} wallpaper, ${categoryNames[currentCategory]} wallpaper, hd wallpaper, 4k wallpaper, free download, desktop background`,
   );
 
   // Update canonical
@@ -362,17 +361,23 @@ function loadRelatedWallpapers() {
   if (!relatedGrid) return;
 
   // Get wallpapers from same category, excluding current
-  const related = allWallpapers
-    .filter(
-      (w) => w.category === currentCategory && w.id !== currentWallpaper.id
-    )
-    .slice(0, 6);
+  let related = allWallpapers.filter(
+    (w) => w.category === currentCategory && w.id !== currentWallpaper.id,
+  );
+
+  // Shuffle the related wallpapers
+  shuffleArray(related);
+
+  // Take top 6
+  related = related.slice(0, 6);
 
   // If not enough, add from other categories
   if (related.length < 6) {
-    const others = allWallpapers
-      .filter((w) => w.id !== currentWallpaper.id && !related.includes(w))
-      .slice(0, 6 - related.length);
+    let others = allWallpapers.filter(
+      (w) => w.id !== currentWallpaper.id && !related.includes(w),
+    );
+    shuffleArray(others);
+    others = others.slice(0, 6 - related.length);
     related.push(...others);
   }
 
@@ -387,9 +392,17 @@ function loadRelatedWallpapers() {
         <span>${w.title}</span>
       </div>
     </a>
-  `
+  `,
     )
     .join("");
+}
+
+// Fisher-Yates Shuffle
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
 }
 
 // Download wallpaper
@@ -403,7 +416,7 @@ function downloadWallpaper() {
   link.href = currentWallpaper.original;
   link.download = `${currentWallpaper.title.replace(
     /\s+/g,
-    "-"
+    "-",
   )}-wallpaper.jpg`;
   document.body.appendChild(link);
   link.click();
