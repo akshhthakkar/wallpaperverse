@@ -188,7 +188,7 @@ async function processImage(category, filename) {
     };
   } catch (error) {
     console.warn(
-      `⚠️ Complex optimization failed for ${filename}: ${error.message}`
+      `⚠️ Complex optimization failed for ${filename}: ${error.message}`,
     );
     console.log(`🔄 Attempting simple fallback for ${filename}...`);
 
@@ -234,7 +234,8 @@ function generateSitemap(wallpapers) {
   const today = new Date().toISOString().split("T")[0];
 
   let xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <!-- Main Pages -->
   <url>
     <loc>${SITE_URL}/</loc>
@@ -256,20 +257,27 @@ function generateSitemap(wallpapers) {
   </url>
 `;
 
-  Object.values(wallpapers)
-    .flat()
-    .forEach((item) => {
+  Object.entries(wallpapers).forEach(([category, items]) => {
+    items.forEach((item) => {
       const id = generateId(item.file);
+      const categoryName = category.charAt(0).toUpperCase() + category.slice(1);
+
       xml += `  <url>
     <loc>${SITE_URL}/wallpaper?id=${id}</loc>
     <lastmod>${today}</lastmod>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>${SITE_URL}/${item.optimized.replace(/\\/g, "/")}</image:loc>
+      <image:title>${item.title}</image:title>
+      <image:caption>${item.title} - ${categoryName} 4K Wallpaper | Free Download</image:caption>
+    </image:image>
   </url>\n`;
     });
+  });
 
   xml += "</urlset>\n";
   fs.writeFileSync(SITEMAP_FILE, xml);
-  console.log("✅ sitemap.xml generated");
+  console.log("✅ sitemap.xml generated (with Image extensions)");
 }
 
 // Main Build Function
