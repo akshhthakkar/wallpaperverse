@@ -144,13 +144,13 @@ function renderSubmissions() {
         <div class="submission-meta">
           <span><strong>Category:</strong> ${submission.category}</span>
           <span><strong>By:</strong> ${escapeHtml(
-            submission.submitter_name || "Anonymous"
+            submission.submitter_name || "Anonymous",
           )}</span>
           <span><strong>Size:</strong> ${formatFileSize(
-            submission.file_size
+            submission.file_size,
           )}</span>
           <span><strong>Date:</strong> ${formatDate(
-            submission.created_at
+            submission.created_at,
           )}</span>
           <span><strong>IP:</strong> ${submission.ip_address || "N/A"}</span>
         </div>
@@ -159,7 +159,7 @@ function renderSubmissions() {
         </div>
       </div>
     </div>
-  `
+  `,
     )
     .join("");
 }
@@ -204,6 +204,18 @@ async function updateStatus(id, newStatus) {
     renderSubmissions();
 
     showToast(`Submission ${newStatus}!`);
+
+    // AUTO-DOWNLOAD ON APPROVE
+    // If approved, immediately download the full-res image so admin can upscale it
+    if (newStatus === "approved") {
+      const submission = allSubmissions.find((s) => s.id === id);
+      if (submission) {
+        showToast("Downloading for upscale...");
+        setTimeout(() => {
+          downloadImage(submission.image_url, submission.title);
+        }, 500);
+      }
+    }
   } catch (error) {
     console.error("Error updating status:", error);
     alert("Error updating submission: " + error.message);
