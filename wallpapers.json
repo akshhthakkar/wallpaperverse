@@ -383,6 +383,13 @@
       "original": "wallpapers/dc/dc-batman-dark-knight.jpg"
     },
     {
+      "file": "dc-batman-knight-rises.jpg",
+      "title": "Batman Knight Rises",
+      "thumbnail": "thumbnails/dc/dc-batman-knight-rises.webp",
+      "optimized": "optimized/dc/dc-batman-knight-rises.webp",
+      "original": "wallpapers/dc/dc-batman-knight-rises.jpg"
+    },
+    {
       "file": "dc-batman-minimal-dark.jpg",
       "title": "Batman Minimal Dark",
       "thumbnail": "thumbnails/dc/dc-batman-minimal-dark.webp",
