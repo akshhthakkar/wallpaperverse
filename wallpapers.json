@@ -460,18 +460,18 @@
       "original": "wallpapers/dc/dc-superman-hope.jpeg"
     },
     {
-      "file": "dc-superman-man-of-steel.jpg",
-      "title": "Superman Man Of Steel",
-      "thumbnail": "thumbnails/dc/dc-superman-man-of-steel.webp",
-      "optimized": "optimized/dc/dc-superman-man-of-steel.webp",
-      "original": "wallpapers/dc/dc-superman-man-of-steel.jpg"
-    },
-    {
       "file": "dc-superman.jpeg",
       "title": "Superman",
       "thumbnail": "thumbnails/dc/dc-superman.webp",
       "optimized": "optimized/dc/dc-superman.webp",
       "original": "wallpapers/dc/dc-superman.jpeg"
+    },
+    {
+      "file": "superman-legacy-eternal.jpg",
+      "title": "Superman Legacy Eternal",
+      "thumbnail": "thumbnails/dc/superman-legacy-eternal.webp",
+      "optimized": "optimized/dc/superman-legacy-eternal.webp",
+      "original": "wallpapers/dc/superman-legacy-eternal.jpg"
     }
   ],
   "football": [

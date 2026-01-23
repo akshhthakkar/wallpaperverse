@@ -671,16 +671,6 @@
     </image:image>
   </url>
   <url>
-    <loc>https://wallpaperverse.akshthakkar.me/wallpaper?id=dc-superman-man-of-steel</loc>
-    <lastmod>2026-01-23</lastmod>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://wallpaperverse.akshthakkar.me/optimized/dc/dc-superman-man-of-steel.webp</image:loc>
-      <image:title>Superman Man Of Steel</image:title>
-      <image:caption>Superman Man Of Steel - Dc 4K Wallpaper | Free Download</image:caption>
-    </image:image>
-  </url>
-  <url>
     <loc>https://wallpaperverse.akshthakkar.me/wallpaper?id=dc-superman</loc>
     <lastmod>2026-01-23</lastmod>
     <priority>0.7</priority>
@@ -688,6 +678,16 @@
       <image:loc>https://wallpaperverse.akshthakkar.me/optimized/dc/dc-superman.webp</image:loc>
       <image:title>Superman</image:title>
       <image:caption>Superman - Dc 4K Wallpaper | Free Download</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://wallpaperverse.akshthakkar.me/wallpaper?id=superman-legacy-eternal</loc>
+    <lastmod>2026-01-23</lastmod>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://wallpaperverse.akshthakkar.me/optimized/dc/superman-legacy-eternal.webp</image:loc>
+      <image:title>Superman Legacy Eternal</image:title>
+      <image:caption>Superman Legacy Eternal - Dc 4K Wallpaper | Free Download</image:caption>
     </image:image>
   </url>
   <url>
