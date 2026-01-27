@@ -437,6 +437,13 @@
       "original": "wallpapers/cars/porsche-911-gt3-pure-performance.jpg"
     },
     {
+      "file": "red-bull-speed-rush.jpg",
+      "title": "Red Bull Speed Rush",
+      "thumbnail": "thumbnails/cars/red-bull-speed-rush.webp",
+      "optimized": "optimized/cars/red-bull-speed-rush.webp",
+      "original": "wallpapers/cars/red-bull-speed-rush.jpg"
+    },
+    {
       "file": "redbull-f1-unstoppable.jpg",
       "title": "Redbull F1 Unstoppable",
       "thumbnail": "thumbnails/cars/redbull-f1-unstoppable.webp",
@@ -919,6 +926,13 @@
       "original": "wallpapers/marvel/marvel-venom-black-bg.jpeg"
     },
     {
+      "file": "marvel-venom-dark-symbiote.jpg",
+      "title": "Venom Dark Symbiote",
+      "thumbnail": "thumbnails/marvel/marvel-venom-dark-symbiote.webp",
+      "optimized": "optimized/marvel/marvel-venom-dark-symbiote.webp",
+      "original": "wallpapers/marvel/marvel-venom-dark-symbiote.jpg"
+    },
+    {
       "file": "marvel-venom-symbiote-wallpaper.jpg",
       "title": "Venom Symbiote Wallpaper",
       "thumbnail": "thumbnails/marvel/marvel-venom-symbiote-wallpaper.webp",
@@ -1189,6 +1203,13 @@
       "thumbnail": "thumbnails/transformers/disney-optimus-prime-transformers-wallpaper.webp",
       "optimized": "optimized/transformers/disney-optimus-prime-transformers-wallpaper.webp",
       "original": "wallpapers/transformers/disney-optimus-prime-transformers-wallpaper.jpg"
+    },
+    {
+      "file": "optimus-prime-guardian-of-earth.jpg",
+      "title": "Optimus Prime Guardian Of Earth",
+      "thumbnail": "thumbnails/transformers/optimus-prime-guardian-of-earth.webp",
+      "optimized": "optimized/transformers/optimus-prime-guardian-of-earth.webp",
+      "original": "wallpapers/transformers/optimus-prime-guardian-of-earth.jpg"
     },
     {
       "file": "transformers-optimus-prime-2.jpeg",
