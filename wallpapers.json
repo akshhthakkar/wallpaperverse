@@ -388,6 +388,13 @@
       "original": "wallpapers/cars/f1-pit-stop-aesthetic.jpeg"
     },
     {
+      "file": "lamborghini-aventador-power-unleashed.jpg",
+      "title": "Lamborghini Aventador Power Unleashed",
+      "thumbnail": "thumbnails/cars/lamborghini-aventador-power-unleashed.webp",
+      "optimized": "optimized/cars/lamborghini-aventador-power-unleashed.webp",
+      "original": "wallpapers/cars/lamborghini-aventador-power-unleashed.jpg"
+    },
+    {
       "file": "lamborghini-miura-wallpaper.jpg",
       "title": "Lamborghini Miura Wallpaper",
       "thumbnail": "thumbnails/cars/lamborghini-miura-wallpaper.webp",
@@ -449,6 +456,13 @@
       "thumbnail": "thumbnails/cars/porsche-911-gt3-pure-performance.webp",
       "optimized": "optimized/cars/porsche-911-gt3-pure-performance.webp",
       "original": "wallpapers/cars/porsche-911-gt3-pure-performance.jpg"
+    },
+    {
+      "file": "porsche-911-gt3-rs-motorsport-dna.jpg",
+      "title": "Porsche 911 Gt3 Rs Motorsport Dna",
+      "thumbnail": "thumbnails/cars/porsche-911-gt3-rs-motorsport-dna.webp",
+      "optimized": "optimized/cars/porsche-911-gt3-rs-motorsport-dna.webp",
+      "original": "wallpapers/cars/porsche-911-gt3-rs-motorsport-dna.jpg"
     },
     {
       "file": "red-bull-speed-rush.jpg",
