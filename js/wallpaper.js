@@ -139,7 +139,7 @@ function displayWallpaper(wallpaperId) {
   // Update breadcrumb
   const breadcrumbCategory = document.getElementById("breadcrumb-category");
   breadcrumbCategory.textContent = categoryNames[currentCategory];
-  breadcrumbCategory.href = `collection.html?id=${currentCategory}`;
+  breadcrumbCategory.href = `collection?id=${currentCategory}`;
   document.getElementById("breadcrumb-title").textContent =
     currentWallpaper.title;
 
@@ -302,6 +302,13 @@ function updateMetaTags() {
         "@type": "Person",
         name: "Aksh Thakkar",
       },
+      creator: {
+        "@type": "Person",
+        name: "Aksh Thakkar",
+        url: "https://github.com/akshhthakkar",
+      },
+      creditText: "WallpaperVerse by Aksh Thakkar",
+      acquireLicensePage: "https://wallpaperverse.akshthakkar.me/",
       copyrightNotice: "Free for personal use",
       license: "https://creativecommons.org/licenses/by-nc/4.0/",
     };
@@ -384,7 +391,7 @@ function loadRelatedWallpapers() {
   relatedGrid.innerHTML = related
     .map(
       (w) => `
-    <a href="wallpaper.html?id=${w.id}" class="related-item">
+    <a href="wallpaper?id=${w.id}" class="related-item">
       <img src="${w.optimized}" alt="${w.title} - ${
         categoryNames[w.category]
       } Wallpaper" loading="lazy" />
