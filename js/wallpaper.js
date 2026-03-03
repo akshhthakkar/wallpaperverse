@@ -261,7 +261,7 @@ function updateMetaTags() {
   const title = `${currentWallpaper.title} - ${categoryNames[currentCategory]} Wallpaper | WallpaperVerse`;
   const description = `Download ${currentWallpaper.title} wallpaper in HD quality. Free ${categoryNames[currentCategory]} wallpaper for desktop and mobile from WallpaperVerse.`;
   const imageUrl = `https://wallpaperverse.akshthakkar.me/${currentWallpaper.original}`;
-  const pageUrl = `https://wallpaperverse.akshthakkar.me/wallpaper/${currentWallpaper.id}`;
+  const pageUrl = `https://wallpaperverse.akshthakkar.me/wallpaper?id=${currentWallpaper.id}`;
 
   // Update document title
   document.title = title;

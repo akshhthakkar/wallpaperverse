@@ -214,6 +214,14 @@
       // Update document title
       document.title = `${displayTitle} Wallpapers | WallpaperVerse`;
 
+      // Update canonical URL to match the category-specific page
+      const canonical = document.querySelector('link[rel="canonical"]');
+      if (canonical) canonical.href = `https://wallpaperverse.akshthakkar.me/collection?id=${categoryId}`;
+
+      // Update Open Graph URL
+      const ogUrl = document.querySelector('meta[property="og:url"]');
+      if (ogUrl) ogUrl.content = `https://wallpaperverse.akshthakkar.me/collection?id=${categoryId}`;
+
       try {
         // Fetch Data
         const response = await fetch("wallpapers.json?v=2");

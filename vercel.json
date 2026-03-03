@@ -35,10 +35,14 @@
       ],
       "destination": "https://wallpaperverse.akshthakkar.me/:path*",
       "permanent": true
+    },
+    {
+      "source": "/wallpaper/:id",
+      "destination": "/wallpaper?id=:id",
+      "permanent": true
     }
   ],
   "rewrites": [
-    { "source": "/wallpaper/:id", "destination": "/wallpaper.html?id=:id" },
     { "source": "/submit", "destination": "/submit.html" },
     { "source": "/admin", "destination": "/admin.html" }
   ],
