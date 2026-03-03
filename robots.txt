@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://wallpaperverse.akshthakkar.me/sitemap.xml
+Sitemap: https://wallpaperverse.akshthakkar.me/image-sitemap.xml
