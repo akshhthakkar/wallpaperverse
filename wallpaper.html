@@ -18,6 +18,60 @@
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/wallpaper.css" />
 
+    <!-- Pre-built SEO data for instant meta tag injection (no async fetch needed) -->
+    <script src="js/seo-data.js"></script>
+    <script>
+      // Instant SEO: Set meta tags BEFORE page renders, using pre-built data
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var id = params.get("id");
+        if (!id || !window.__SEO_DATA__ || !window.__SEO_DATA__[id]) return;
+        var d = window.__SEO_DATA__[id];
+        var title = d.t + " Wallpaper 4K HD - Free Download | WallpaperVerse";
+        var pageUrl =
+          "https://wallpaperverse.akshthakkar.me/wallpaper?id=" + id;
+        var imageUrl = "https://wallpaperverse.akshthakkar.me/" + d.i;
+        document.title = title;
+        // Update meta tags
+        var metas = {
+          description: d.d,
+          keywords:
+            d.t +
+            " wallpaper, " +
+            d.c +
+            " wallpaper, 4k wallpaper, hd wallpaper, free download, desktop background, laptop wallpaper",
+        };
+        for (var name in metas) {
+          var el = document.querySelector('meta[name="' + name + '"]');
+          if (el) el.content = metas[name];
+        }
+        // Canonical
+        var canon = document.querySelector('link[rel="canonical"]');
+        if (canon) canon.href = pageUrl;
+        // OG tags
+        var ogMap = {
+          "og:title": title,
+          "og:description": d.d,
+          "og:url": pageUrl,
+          "og:image": imageUrl,
+        };
+        for (var prop in ogMap) {
+          var el = document.querySelector('meta[property="' + prop + '"]');
+          if (el) el.content = ogMap[prop];
+        }
+        // Twitter tags
+        var twMap = {
+          "twitter:title": title,
+          "twitter:description": d.d,
+          "twitter:image": imageUrl,
+        };
+        for (var tw in twMap) {
+          var el = document.querySelector('meta[name="' + tw + '"]');
+          if (el) el.content = twMap[tw];
+        }
+      })();
+    </script>
+
     <!-- SEO Meta Tags - Updated dynamically by JS -->
     <meta
       name="description"
@@ -331,6 +385,24 @@
         />
       </svg>
     </button>
+
+    <!-- Noscript fallback for crawlers that don't execute JS -->
+    <noscript>
+      <div
+        style="padding: 2rem; text-align: center; color: #ccc; background: #111"
+      >
+        <h2>WallpaperVerse - Free HD & 4K Wallpapers</h2>
+        <p>
+          Download high-quality wallpapers for your desktop, laptop, and mobile.
+          Browse our curated collection of Anime, Marvel, DC, Movies, Cars,
+          Football, and Transformers wallpapers.
+        </p>
+        <p>
+          <a href="/" style="color: #00ff88">Browse All Collections</a> |
+          <a href="collection" style="color: #00ff88">View Categories</a>
+        </p>
+      </div>
+    </noscript>
 
     <!-- Supabase SDK -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>

@@ -5,7 +5,8 @@
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node scripts/update-wallpapers.js"
+    "build:seo": "node scripts/generate-seo.js",
+    "build": "node scripts/update-wallpapers.js && node scripts/generate-seo.js"
   },
   "repository": {
     "type": "git",

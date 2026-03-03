@@ -55,7 +55,7 @@ function getWallpaperIdFromUrl() {
 async function loadWallpaperData() {
   try {
     // Use absolute path to ensure it works from any page
-    const response = await fetch("/wallpapers.json?v=" + Date.now());
+    const response = await fetch("/wallpapers.json?v=2");
     const data = await response.json();
 
     // Flatten all wallpapers with category info
@@ -125,7 +125,7 @@ function displayWallpaper(wallpaperId) {
     spinner.classList.add("hidden");
   };
 
-  img.src = currentWallpaper.optimized + "?v=" + Date.now();
+  img.src = currentWallpaper.optimized;
   img.alt = `${currentWallpaper.title} - ${categoryNames[currentCategory]} HD Wallpaper | WallpaperVerse`;
 
   // Update title and info
@@ -258,7 +258,7 @@ function formatNumber(num) {
 
 // Update meta tags for SEO
 function updateMetaTags() {
-  const title = `${currentWallpaper.title} - ${categoryNames[currentCategory]} Wallpaper | WallpaperVerse`;
+  const title = `${currentWallpaper.title} Wallpaper 4K HD - Free Download | WallpaperVerse`;
   const description = `Download ${currentWallpaper.title} wallpaper in HD quality. Free ${categoryNames[currentCategory]} wallpaper for desktop and mobile from WallpaperVerse.`;
   const imageUrl = `https://wallpaperverse.akshthakkar.me/${currentWallpaper.original}`;
   const pageUrl = `https://wallpaperverse.akshthakkar.me/wallpaper?id=${currentWallpaper.id}`;
