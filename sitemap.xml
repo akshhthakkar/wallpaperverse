@@ -21,6 +21,60 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://wallpaperverse.akshthakkar.me/collection?id=anime</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wallpaperverse.akshthakkar.me/collection?id=marvel</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wallpaperverse.akshthakkar.me/collection?id=dc</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wallpaperverse.akshthakkar.me/collection?id=movies</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wallpaperverse.akshthakkar.me/collection?id=cars</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wallpaperverse.akshthakkar.me/collection?id=football</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wallpaperverse.akshthakkar.me/collection?id=transformers</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wallpaperverse.akshthakkar.me/collection?id=wanderlust</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wallpaperverse.akshthakkar.me/collection?id=random</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://wallpaperverse.akshthakkar.me/wallpaper?id=anime-chainsawman-denji-angry</loc>
     <lastmod>2026-03-03</lastmod>
     <priority>0.7</priority>
